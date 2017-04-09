@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd 
+	http://www.springframework.org/schema/tx    http://www.springframework.org/schema/tx/spring-tx.xsd
+	http://www.springframework.org/schema/aop   http://www.springframework.org/schema/aop/spring-aop.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"> 
+	 <!-- 
+	<context:annotation-config />
+    <context:component-scan base-package="com" >
+    </context:component-scan> 
+    
+	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+	<context:annotation-config/> -->
+	 
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" >    
+            <property name="messageConverters">     
+                 <list>     
+                     <bean class = "org.springframework.http.converter.StringHttpMessageConverter">     
+                        <property name = "supportedMediaTypes">  
+                              <list>  
+                                  <value>text/html;charset=UTF-8</value>     
+                             </list>     
+                        </property>     
+                     </bean>     
+                 </list>     
+           </property>    
+    </bean>  
+	<bean id="fushionChartsTestService" class="com.service.impl.FushionChartsTestServiceImpl">
+	</bean>
+	
+	<bean id="bathroomService" class="com.service.impl.BathroomServiceImpl">
+	</bean>
+	
+	<bean id="findStudentService" class="com.service.impl.FindStudentServiceImpl">
+	</bean>
+	
+	<!-- 数据库配置 -->
+	<bean id="baseDao" abstract="false" class="com.dao.impl.BaseDaoImpl">
+		<property name="entityManagerFactory" ref="rtpmEntityManagerFactory"/>
+		<property name="jdbcTemplate" ref="rtpmJdbcTemplate"/>
+		<property name="queryTimeout" value="${queryTimeout}"/>
+		<property name="fetchSize" value="${fetchSize}"/>
+    </bean>
+	
+	<bean id="LocalOracleDao" parent="baseDao" class="com.dao.impl.OracleDaoImpl">
+		<property name="entityManagerFactory" ref="localOracleEntityManagerFactory"/>
+		<property name="jdbcTemplate" ref="localOracleJdbcTemplate"/>
+	</bean>
+	
+	<bean id="studentService" class="com.service.impl.StudentServiceImpl">
+	</bean>
+	
+	<bean id="loginService" class="com.service.impl.LoginServiceImpl">
+	</bean>
+	
+	<bean id="echartsBathroomService" class="com.service.impl.EchartsBathroomServiceImpl">
+	</bean>
+	
+	
+	
+</beans>

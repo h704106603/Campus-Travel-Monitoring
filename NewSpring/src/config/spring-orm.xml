@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd 
+	http://www.springframework.org/schema/tx    http://www.springframework.org/schema/tx/spring-tx.xsd
+	http://www.springframework.org/schema/aop   http://www.springframework.org/schema/aop/spring-aop.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"> 			
+
+	<!-- 方法1 spring bean容器读取properties文件 -->
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<!-- <property name="location" value="file:/eomsBulletin/config/jdbcpool.properties"/> -->
+		<!-- <property name="location" value="classpath:/jdbcpool_new.properties"/> -->
+		<property name="locations">
+		    <list>
+		        <value>classpath:config/jdbc.properties</value>
+		    </list>
+		</property>
+	</bean>
+	<!-- 方法2
+	<context:property-palceholder location="classpath:/jdbcpool.properties"/>
+	 -->
+	
+	<!-- ${} 占位符 -->
+	<bean id="rtpmDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass" value="${newshwg.driverClass}"/>
+		<property name="jdbcUrl" value="${newshwg.jdbcUrl}"/>
+		<property name="user" value="${newshwg.user}"/>
+		<property name="password" value="${newshwg.password}"/>	
+		<!--当连接池中的连接耗尽的时候c3p0一次同时获取的连接数-->
+		<property name="acquireIncrement" value="${newshwg.acquireIncrement}"/>
+		<!--初始连接数-->
+		<property name="initialPoolSize" value="${newshwg.initialPoolSize}"/>
+		<!--池中连接最小数量-->
+		<property name="minPoolSize" value="${newshwg.minPoolSize}"/>
+		<!--最大连接数-->
+		<property name="maxPoolSize" value="${newshwg.maxPoolSize}"/>
+		<!--idle状态的connection能存活的最大时间-->
+		<property name="maxIdleTime" value="${newshwg.maxIdleTime}"/>
+		<!--重试频率-->  
+		<property name="acquireRetryDelay" value="${newshwg.acquireRetryDelay}"/>
+		<!--定义在从数据库获取新连接失败后重复尝试的次数--> 
+		<property name="acquireRetryAttempts" value="${newshwg.acquireRetryAttempts}"/>
+		<!--如果想让数据库和网络故障恢复之后，pool能继续请求正常资源必须把此项配置设为false -->
+		<property name="breakAfterAcquireFailure" value="${newshwg.breakAfterAcquireFailure}"/>
+	</bean>
+	
+	<bean id="shwghisDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+  		<property name="driverClass" value="${shwghis.driverClass}" /> 
+  		<property name="jdbcUrl" value="${shwghis.jdbcUrl}" /> 
+  		<property name="user" value="${shwghis.user}" /> 
+  		<property name="password" value="${shwghis.password}" /> 
+  		<property name="acquireIncrement" value="${shwghis.acquireIncrement}" /> 
+  		<property name="initialPoolSize" value="${shwghis.initialPoolSize}" /> 
+  		<property name="minPoolSize" value="${shwghis.minPoolSize}" /> 
+  		<property name="maxPoolSize" value="${shwghis.maxPoolSize}" /> 
+  		<property name="maxIdleTime" value="${shwghis.maxIdleTime}" /> 
+  		<property name="acquireRetryDelay" value="${shwghis.acquireRetryDelay}" /> 
+  		<property name="acquireRetryAttempts" value="${shwghis.acquireRetryAttempts}" /> 
+  		<property name="breakAfterAcquireFailure" value="${shwghis.breakAfterAcquireFailure}" /> 
+  	</bean>
+	
+	<bean name="rtpmEntityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceUnitName" value="rtpmPunit"></property>
+		<property name="persistenceXmlLocation" value="classpath:config/persistence.xml"></property>
+		<!--<property name="persistenceUnitManager" ref="persistenceUnitManager"/>-->
+		<property name="loadTimeWeaver">
+		    <bean class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver"/>
+		</property>
+		<property name="dataSource" ref="rtpmDataSource"  />
+		<property name="jpaPropertyMap">
+		  <map>
+		   <!-- <entry key="hibernate.dialect" value="org.hibernate.dialect.Oracle5Dialect"></entry> -->		  
+		   <entry key="hibernate.dialect" value="org.hibernate.dialect.Oracle9iDialect"></entry>
+		   <!--<entry key="hibernate.connection.datasource" value="oraccs"></entry>
+		   <entry key="hibernate.show_sql" value="true"></entry>
+		   <entry key="hibernate.hbm2ddl.auto" value="false"></entry>
+		   <entry key="hibernate.transaction.factory_class" value=""></entry>
+		   <entry key="jta.UserTransaction" value=""></entry>-->
+		  </map>
+		</property>
+		<property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <property name="showSql" value="false" />
+				<property name="generateDdl" value="false" />
+				<property name="database" value="ORACLE"/>
+			</bean>
+        </property>
+	</bean>
+	
+	<bean name="shwghisEntityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+  		<property name="persistenceUnitName" value="shwghisPunit" /> 
+  		<property name="persistenceXmlLocation" value="classpath:config/persistence.xml" /> 
+		<property name="loadTimeWeaver">
+  			<bean class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver" /> 
+  		</property>
+  		<property name="dataSource" ref="shwghisDataSource" /> 
+ 		<property name="jpaPropertyMap">
+			<map>
+  				<entry key="hibernate.dialect" value="org.hibernate.dialect.Oracle9iDialect" /> 
+ 			</map>
+  		</property>
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+  				<property name="showSql" value="false" /> 
+  				<property name="generateDdl" value="false" /> 
+  				<property name="database" value="ORACLE" /> 
+  			</bean>
+  		</property>
+ 	</bean>
+	
+	<context:annotation-config />
+	
+	<bean id="rtpmTransactionManager"
+          class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="rtpmEntityManagerFactory" />
+    </bean>
+    
+    <bean id="shwghisTransactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="shwghisEntityManagerFactory" />
+    </bean>    
+    
+    <bean id = "rtpmJdbcTemplate" class = "org.springframework.jdbc.core.JdbcTemplate"> 
+    	<property name = "dataSource" ref="rtpmDataSource"/> 
+    </bean>
+
+    <bean id="shwghisJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+  		<property name="dataSource" ref="shwghisDataSource" /> 
+  	</bean>
+  	
+  	<!-- 添加的 -->
+  	
+  	<bean name="newshkfAllEntityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceUnitName" value="newshkfAllPunit"></property>
+		<property name="persistenceXmlLocation" value="classpath:config/persistence.xml"></property>
+		<property name="loadTimeWeaver">
+		    <bean class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver"/>
+		</property>
+		<property name="dataSource" ref="newshkfAllDataSource"/>
+		<property name="jpaPropertyMap">
+		  <map>
+		   <entry key="hibernate.dialect" value="org.hibernate.dialect.Oracle9iDialect"></entry>
+		  </map>
+		</property>
+		<property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <property name="showSql" value="false" />
+				<property name="generateDdl" value="false" />
+				<property name="database" value="ORACLE"/>
+			</bean>
+        </property>
+	</bean>
+	
+	<bean id="newshkfAllDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass" value="${newshkfAll.driverClass}"/>
+		<property name="jdbcUrl" value="${newshkfAll.jdbcUrl}"/>
+		<property name="user" value="${newshkfAll.user}"/>
+		<property name="password" value="${newshkfAll.password}"/>	
+		<property name="acquireIncrement" value="${newshkfAll.acquireIncrement}"/>
+		<property name="initialPoolSize" value="${newshkfAll.initialPoolSize}"/>
+		<property name="minPoolSize" value="${newshkfAll.minPoolSize}"/>
+		<property name="maxPoolSize" value="${newshkfAll.maxPoolSize}"/>
+		<property name="maxIdleTime" value="${newshkfAll.maxIdleTime}"/>
+		<property name="acquireRetryDelay" value="${newshkfAll.acquireRetryDelay}"/>
+		<property name="acquireRetryAttempts" value="${newshkfAll.acquireRetryAttempts}"/>
+		<property name="breakAfterAcquireFailure" value="${newshkfAll.breakAfterAcquireFailure}"/>
+	</bean>
+	
+	<bean name="shothAllEntityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceUnitName" value="shothAllPunit"></property>
+		<property name="persistenceXmlLocation" value="classpath:config/persistence.xml"></property>
+		<property name="loadTimeWeaver">
+		    <bean class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver"/>
+		</property>
+		<property name="dataSource" ref="shothAllDataSource"/>
+		<property name="jpaPropertyMap">
+		  <map>
+		   <entry key="hibernate.dialect" value="org.hibernate.dialect.Oracle9iDialect"></entry>
+		  </map>
+		</property>
+		<property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <property name="showSql" value="false" />
+				<property name="generateDdl" value="false" />
+				<property name="database" value="ORACLE"/>
+			</bean>
+        </property>
+	</bean>
+	
+	<bean id="shothAllDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass" value="${shothAll.driverClass}"/>
+		<property name="jdbcUrl" value="${shothAll.jdbcUrl}"/>
+		<property name="user" value="${shothAll.user}"/>
+		<property name="password" value="${shothAll.password}"/>	
+		<property name="acquireIncrement" value="${shothAll.acquireIncrement}"/>
+		<property name="initialPoolSize" value="${shothAll.initialPoolSize}"/>
+		<property name="minPoolSize" value="${shothAll.minPoolSize}"/>
+		<property name="maxPoolSize" value="${shothAll.maxPoolSize}"/>
+		<property name="maxIdleTime" value="${shothAll.maxIdleTime}"/>
+		<property name="acquireRetryDelay" value="${shothAll.acquireRetryDelay}"/>
+		<property name="acquireRetryAttempts" value="${shothAll.acquireRetryAttempts}"/>
+		<property name="breakAfterAcquireFailure" value="${shothAll.breakAfterAcquireFailure}"/>
+	</bean>
+	
+  	<bean id="newshkfAllTransactionManager"
+          class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="newshkfAllEntityManagerFactory" />
+    </bean>
+    
+    
+    <bean id = "newshkfAllJdbcTemplate" class = "org.springframework.jdbc.core.JdbcTemplate"> 
+    	<property name = "dataSource" ref="newshkfAllDataSource"/> 
+    </bean>
+    
+    <bean id = "shothAllJdbcTemplate" class = "org.springframework.jdbc.core.JdbcTemplate"> 
+    	<property name = "dataSource" ref="shothAllDataSource"/> 
+    </bean>
+	<!-- 
+	<tx:advice id="txAdvice" transaction-manager="rtpmTransactionManager" >
+		<tx:attributes>
+			<tx:method name="*"/>
+		</tx:attributes>
+	</tx:advice>
+	<aop:config>
+		<aop:pointcut id="pointcut" expression="execution(* com.asiainfo.m12580.manager.*Manager.*(..))" />        
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="pointcut" />
+	</aop:config>
+	 -->
+    <tx:annotation-driven transaction-manager="rtpmTransactionManager"  />
+	
+	<!--  add by zhangrp  -->
+	<tx:advice id="txAdvice" transaction-manager="rtpmTransactionManager" >
+		<tx:attributes>
+			<tx:method name="*"/>
+		</tx:attributes>
+	</tx:advice>
+	<aop:config>
+		<aop:pointcut id="pointcut" expression="execution(* com.dao.impl.BaseDaoImpl.*(..))" />        
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="pointcut" /> 
+	</aop:config>
+	
+	
+	<!--本地localOracle -->
+	<bean name="localOracleEntityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceUnitName" value="localOraclePunit"></property>
+		<property name="persistenceXmlLocation" value="classpath:config/persistence.xml"></property>
+		<property name="loadTimeWeaver">
+		    <bean class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver"/>
+		</property>
+		<property name="dataSource" ref="localOracleDataSource"/>
+		<property name="jpaPropertyMap">
+		  <map>
+		   <entry key="hibernate.dialect" value="org.hibernate.dialect.Oracle9iDialect"></entry>
+		  </map>
+		</property>
+		<property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <property name="showSql" value="false" />
+				<property name="generateDdl" value="false" />
+				<property name="database" value="ORACLE"/>
+			</bean>
+        </property>
+	</bean>
+	
+	<bean id="localOracleDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass" value="${localOracle.driverClass}"/>
+		<property name="jdbcUrl" value="${localOracle.jdbcUrl}"/>
+		<property name="user" value="${localOracle.user}"/>
+		<property name="password" value="${localOracle.password}"/>	
+		<property name="acquireIncrement" value="${localOracle.acquireIncrement}"/>
+		<property name="initialPoolSize" value="${localOracle.initialPoolSize}"/>
+		<property name="minPoolSize" value="${localOracle.minPoolSize}"/>
+		<property name="maxPoolSize" value="${localOracle.maxPoolSize}"/>
+		<property name="maxIdleTime" value="${localOracle.maxIdleTime}"/>
+		<property name="acquireRetryDelay" value="${localOracle.acquireRetryDelay}"/>
+		<property name="acquireRetryAttempts" value="${localOracle.acquireRetryAttempts}"/>
+		<property name="breakAfterAcquireFailure" value="${localOracle.breakAfterAcquireFailure}"/>
+	</bean>
+	
+	<bean id = "localOracleJdbcTemplate" class = "org.springframework.jdbc.core.JdbcTemplate"> 
+    	<property name = "dataSource" ref="localOracleDataSource"/> 
+    </bean>
+    
+    
+	
+	
+	
+	
+	
+	
+</beans>	

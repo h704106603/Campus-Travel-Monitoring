@@ -1,0 +1,1 @@
+select t.id,t.name,t.grade from student t where t.id in( select t.friendid from friend t where t.myid = '{id}')
