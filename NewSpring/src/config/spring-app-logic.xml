@@ -33,9 +33,6 @@
 	<bean id="fushionChartsTestService" class="com.service.impl.FushionChartsTestServiceImpl">
 	</bean>
 	
-	<bean id="bathroomService" class="com.service.impl.BathroomServiceImpl">
-	</bean>
-	
 	<bean id="findStudentService" class="com.service.impl.FindStudentServiceImpl">
 	</bean>
 	
@@ -58,9 +55,16 @@
 	<bean id="loginService" class="com.service.impl.LoginServiceImpl">
 	</bean>
 	
+	<bean id="bathroomService" class="com.service.impl.BathroomServiceImpl">
+	</bean>
+	
+	<bean id="libraryService" class="com.service.impl.LibraryServiceImpl">
+	</bean>
+	
 	<bean id="echartsBathroomService" class="com.service.impl.EchartsBathroomServiceImpl">
 	</bean>
 	
-	
+	<bean id="echartsLibraryService" class="com.service.impl.EchartsLibraryServiceImpl">
+	</bean>
 	
 </beans>
