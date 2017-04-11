@@ -2,9 +2,10 @@ package com.service;
 
 import java.util.List;
 
-import com.entity.Student;
+import com.entity.StudentLocation;
 
 public interface FindStudentService {
 
-	public List<Student> findStudent(String studentId);
+	public List<StudentLocation> findStudent(String studentId);
+
 }

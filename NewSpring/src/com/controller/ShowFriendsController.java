@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.entity.Student;
+import com.entity.StudentLocation;
 import com.service.FindStudentService;
 
 
@@ -50,8 +51,8 @@ public class ShowFriendsController {
   	@ResponseBody  
     public Map<String, Object> showFriend(String studentId){  
         Map<String, Object> result=new HashMap<String, Object>();
-        List<Student> studentlist=findStudentService.findStudent(studentId);  
-        result.put("data",studentlist);  
+        List<StudentLocation> studentLocation=findStudentService.findStudent(studentId);
+        result.put("studentLocation",studentLocation);  
         return result;  
     }  
   	
