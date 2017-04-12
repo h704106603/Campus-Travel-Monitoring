@@ -1,7 +1,9 @@
 package com.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.http.HttpRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,9 +31,13 @@ public class LoginController {
   	public ModelAndView doLogin(String username,String password,HttpSession session){
   		
   		session.setAttribute("username", username);
-  		if(loginService.isAdmin(username, password)){
-  			return new ModelAndView("success");
-  		}
+  		//为了调试其他功能，可以跳过数据库验证
+//  		if(loginService.isAdmin(username, password)){
+//  			return new ModelAndView("success");
+//  		}
+  		if(true){
+            return new ModelAndView("success");
+        }
   		else{
   			String str = new String("登录失败");
   			return new ModelAndView("login","wrongmessage",str);

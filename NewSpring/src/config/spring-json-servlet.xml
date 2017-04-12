@@ -17,7 +17,7 @@
 	<!-- 
 	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>  
 	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
-	 -->
+	 
 	<mvc:annotation-driven conversion-service="conversionService" />
 	<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
 		<property name="converters">
@@ -25,7 +25,14 @@
 		</property>	
 	</bean>	
 
-	<mvc:default-servlet-handler/>
+	<mvc:default-servlet-handler/>-->
+	
+	<mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean id="loginInterceptor" class="web.interceptor.Login"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
 	<bean class ="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" >  
     	<property name="messageConverters">  
@@ -55,20 +62,6 @@
 					<property name="prefix" value="/chart/"/>
 					<property name="suffix" value=".jsp"/>
 				</bean>
-			<!-- 
-				<bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">  
-      				<property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"/>
-     				<property name="suffix" value=".fm"/>
-					<property name="contentType" value="text/html; charset=UTF-8"/>
-      			</bean>
-				<bean class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">  
-					<property name="cache" value="false"/>
-					<property name="prefix" value="">
-					<property name="suffix" value=".html">
-					<property name="contentType" value="text/html;charset=UTF-8"/>  
-            	</bean>
-      		 -->
-      		 
 			</list>
 		</property>
 		<property name="defaultViews">

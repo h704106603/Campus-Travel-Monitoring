@@ -8,7 +8,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Home</title>
 
-  
   <link href="<%=request.getContextPath()%>/chart/common/css/font-awesome.min.css" rel="stylesheet">
   <link href="<%=request.getContextPath()%>/chart/common/css/bootstrap.min.css" rel="stylesheet">
   <link href="<%=request.getContextPath()%>/chart/common/css/bootstrap-datetimepicker.min.css" rel="stylesheet">  
@@ -95,6 +94,7 @@
 						<div class="tm-green-gradient-bg tm-city-price-container">
 							<span>图书馆</span>
 							<span>实时监控</span>
+							<span>出行指数:${result.LibraryScore}</span>
 						</div>	
 					</a>			
 				</div>				
@@ -107,8 +107,10 @@
 						<div class="tm-yellow-gradient-bg tm-city-price-container">
 							<span>公共浴室</span>
 							<span>实时监控</span>
+							<span>出行指数:${LibraryScore}</span>
 						</div>	
-					</a>			
+					</a>
+								
 				</div>				
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-6">
@@ -118,6 +120,7 @@
 						<div class="tm-red-gradient-bg tm-city-price-container">
 							<span>食堂</span>
 							<span>实时监控</span>
+							<span>出行指数:{$CanteenScore}</span>
 						</div>	
 					</a>					
 				</div>				
@@ -136,6 +139,7 @@
 						<div class="tm-green-gradient-bg tm-city-price-container">
 							<span>剧场</span>
 							<span>实时监控</span>
+							<span>出行指数:{$TheatreScore}</span>
 						</div>	
 					</a>			
 				</div>				
@@ -148,6 +152,7 @@
 						<div class="tm-yellow-gradient-bg tm-city-price-container">
 							<span>教室</span>
 							<span>实时监控</span>
+							<span>出行指数:{$ClassroomScore}</span>
 						</div>	
 					</a>			
 				</div>				
@@ -332,6 +337,12 @@
 		    $('.flexslider').flexslider({
 			    controlNav: false
 		    });
+		    
+		    $.getJSON("<%=request.getContextPath()%>/ShowScore",function(msg){
+	 			var LibraryScore = msg.LibraryScore;
+	 			alert(LibraryScore);
+	 			
+	 		});
 
 	  	});
 	</script>

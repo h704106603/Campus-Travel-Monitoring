@@ -45,7 +45,7 @@
 		<servlet-name>json</servlet-name>  
 	</filter-mapping>
 	
-    <!-- 配置DispatchcerServlet -->
+    <!-- 配置DispatchcerServlet 
     <servlet>
 	    <servlet-name>springmvc</servlet-name>
 	    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -54,7 +54,7 @@
 	<servlet-mapping>
 	    <servlet-name>springmvc</servlet-name>
 	    <url-pattern>/</url-pattern>
-	</servlet-mapping>
+	</servlet-mapping>-->
 
     <servlet>
 		<servlet-name>json</servlet-name>
@@ -104,6 +104,26 @@
 	<servlet-mapping>
 	      <servlet-name>default</servlet-name>
 	      <url-pattern>*.png</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+	      <servlet-name>default</servlet-name>
+	      <url-pattern>*.woff</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+	      <servlet-name>default</servlet-name>
+	      <url-pattern>*.eot</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+	      <servlet-name>default</servlet-name>
+	      <url-pattern>*.ttf</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+	      <servlet-name>default</servlet-name>
+	      <url-pattern>*.svg</url-pattern>
 	</servlet-mapping>
 	
 </web-app>
