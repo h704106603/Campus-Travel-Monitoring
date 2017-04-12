@@ -37,7 +37,7 @@
 		            </div>
 	  				<nav class="tm-nav">
 						<ul>
-							<li><a href="index.html" class="active">首页</a></li>
+							<li><a href="<%=request.getContextPath()%>/Index" class="active">首页</a></li>
 							<li><a href="<%=request.getContextPath()%>/findFriend?username=<%=(String) session.getAttribute("username")%>">好友情况</a></li>
 							<li><a href="about.html">图书馆</a></li>
 							<li><a href="<%=request.getContextPath()%>/BathroomIndex">公共浴室</a></li>
