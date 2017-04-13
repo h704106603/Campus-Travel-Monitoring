@@ -94,7 +94,7 @@
 						<div class="tm-green-gradient-bg tm-city-price-container">
 							<span>图书馆</span>
 							<span>实时监控</span>
-							<span>出行指数:${result.LibraryScore}</span>
+							<span id="LibraryScore">出行指数:0</span>
 						</div>	
 					</a>			
 				</div>				
@@ -107,7 +107,7 @@
 						<div class="tm-yellow-gradient-bg tm-city-price-container">
 							<span>公共浴室</span>
 							<span>实时监控</span>
-							<span>出行指数:${LibraryScore}</span>
+							<span id="BathroomScore">出行指数:</span>
 						</div>	
 					</a>
 								
@@ -120,7 +120,7 @@
 						<div class="tm-red-gradient-bg tm-city-price-container">
 							<span>食堂</span>
 							<span>实时监控</span>
-							<span>出行指数:{$CanteenScore}</span>
+							<span id="CanteenScore">出行指数:</span>
 						</div>	
 					</a>					
 				</div>				
@@ -139,7 +139,7 @@
 						<div class="tm-green-gradient-bg tm-city-price-container">
 							<span>剧场</span>
 							<span>实时监控</span>
-							<span>出行指数:{$TheatreScore}</span>
+							<span id="TheatreScore">出行指数:</span>
 						</div>	
 					</a>			
 				</div>				
@@ -152,7 +152,7 @@
 						<div class="tm-yellow-gradient-bg tm-city-price-container">
 							<span>教室</span>
 							<span>实时监控</span>
-							<span>出行指数:{$ClassroomScore}</span>
+							<span id="ClassroomScore">出行指数:</span>
 						</div>	
 					</a>			
 				</div>				
@@ -340,7 +340,15 @@
 		    
 		    $.getJSON("<%=request.getContextPath()%>/ShowScore",function(msg){
 	 			var LibraryScore = msg.LibraryScore;
-	 			alert(LibraryScore);
+	 			var BathroomScore = msg.BathroomScore;
+	 			var CanteenScore = msg.CanteenScore;
+	 			var TheatreScore = msg.TheatreScore;
+	 			var ClassroomScore = msg.ClassroomScore;
+	 			$("#LibraryScore").html("出行指数："+LibraryScore+"%");
+	 			$("#BathroomScore").html("出行指数："+BathroomScore+"%");
+	 			$("#CanteenScore").html("出行指数："+CanteenScore+"%");
+	 			$("#TheatreScore").html("出行指数："+TheatreScore+"%");
+	 			$("#ClassroomScore").html("出行指数："+ClassroomScore+"%");
 	 			
 	 		});
 
