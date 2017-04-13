@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller
-public class ShowScoreController{
+public class GetAllLocationScoreController{
 
-    @RequestMapping(value = "/ShowScore",method= RequestMethod.GET) 
+    @RequestMapping(value = "/GetAllLocationScore",method= RequestMethod.GET) 
     @ResponseBody  
-    public Map<String, Object> showFriend(String studentId,HttpServletRequest request){  
+    public Map<String, Object> ShowScore(){  
         Map<String, Object> result=new HashMap<String, Object>();
         result.put("LibraryScore","68");
         result.put("BathroomScore","780");
