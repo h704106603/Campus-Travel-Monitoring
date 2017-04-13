@@ -339,16 +339,16 @@
 		    });
 		    
 		    $.getJSON("<%=request.getContextPath()%>/GetAllLocationScore",function(msg){
-	 			var LibraryScore = msg.LibraryScore;
-	 			var BathroomScore = msg.BathroomScore;
-	 			var CanteenScore = msg.CanteenScore;
-	 			var TheatreScore = msg.TheatreScore;
-	 			var ClassroomScore = msg.ClassroomScore;
-	 			$("#LibraryScore").html("出行指数："+LibraryScore+"%");
-	 			$("#BathroomScore").html("出行指数："+BathroomScore+"%");
-	 			$("#CanteenScore").html("出行指数："+CanteenScore+"%");
-	 			$("#TheatreScore").html("出行指数："+TheatreScore+"%");
-	 			$("#ClassroomScore").html("出行指数："+ClassroomScore+"%");
+	 			var libraryScore = msg.libraryScore;
+	 			var bathroomScore = msg.bathroomScore;
+	 			var canteenScore = msg.canteenScore;
+	 			var theatreScore = msg.theatreScore;
+	 			var classroomScore = msg.classroomScore;
+	 			$("#LibraryScore").html("出行指数："+libraryScore+"%");
+	 			$("#BathroomScore").html("出行指数："+bathroomScore+"%");
+	 			$("#CanteenScore").html("出行指数："+canteenScore+"%");
+	 			$("#TheatreScore").html("出行指数："+theatreScore+"%");
+	 			$("#ClassroomScore").html("出行指数："+classroomScore+"%");
 	 			
 	 		});
 

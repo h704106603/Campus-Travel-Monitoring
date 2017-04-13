@@ -1,12 +1,14 @@
 package com.service.impl;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 
 import com.service.GetAllLocationScoreService;
+import com.util.ResourceUtils;
 
 
 public class GetAllLocationScoreServiceImpl implements GetAllLocationScoreService{
@@ -14,18 +16,36 @@ public class GetAllLocationScoreServiceImpl implements GetAllLocationScoreServic
     @javax.annotation.Resource(name="LocalOracleDao")
     private com.dao.LocalOracleDao LocalOracleDao;
     
-    @Value("classpath:config/Bathroom/allLibrary.sql")
-    private Resource allLibrarySql;
+    @Value("classpath:config/Bathroom/libraryScore.sql")
+    private Resource LibraryScoreSql;
+    @Value("classpath:config/Bathroom/bathroomScore.sql")
+    private Resource BathroomScoreSql;
+    @Value("classpath:config/Bathroom/canteenScore.sql")
+    private Resource CanteenScoreSql;
+    @Value("classpath:config/Bathroom/theatreScore.sql")
+    private Resource TheatreScoreSql;
+    @Value("classpath:config/Bathroom/classroomScore.sql")
+    private Resource ClassroomScoreSql;
+    
     
     public Map<String, Object> ShowScore(){
         
-        GetAllLocationScore(allLibrarySql);
+    	Map<String, Object> result=new HashMap<String, Object>();
+    	String libraryScore = GetAllLocationScore(LibraryScoreSql);
+    	String bathroomScore = GetAllLocationScore(BathroomScoreSql);
+    	String canteenScore = GetAllLocationScore(CanteenScoreSql);
+    	String theatreScore = GetAllLocationScore(TheatreScoreSql);
+    	String classroomScore = GetAllLocationScore(ClassroomScoreSql);
+    	result.put("libraryScore", libraryScore);
+    	result.put("bathroomScore", bathroomScore);
+    	result.put("canteenScore", canteenScore);
+    	result.put("theatreScore", theatreScore);
+    	result.put("classroomScore", classroomScore);
+        return result;
     }
     
-    @Override
-    public Map<String, Object> GetAllLocationScore(Resource Rsql){
+    public String GetAllLocationScore(Resource Rsql){
         
-        Map<String, Object> result=new HashMap<String, Object>();
 //        try {
 //            String sql = ResourceUtils.getStringFromResource(Rsql);
 //            //sql = sql.replaceAll("\\{id\\}", id);
@@ -33,20 +53,16 @@ public class GetAllLocationScoreServiceImpl implements GetAllLocationScoreServic
 //            if(list!=null && list.size()>0){
 //                for (Object[] objData : list) {
 //                    String name = objData[0]==null ? "" : String.valueOf(objData[0]);
-//                    String value = objData[1]==null ? "0" : String.valueOf(objData[1]); //今日
-//                    result.put(name, value);
+//                    String value = objData[1]==null ? "0" : String.valueOf(objData[1]); //浠婃棩
+//                    return value;
 //                }
 //            }
 //
 //        } catch (Exception e) {
 //            e.printStackTrace();
 //        }
-        result.put("LibraryScore","68");
-        result.put("BathroomScore","780");
-        result.put("CanteenScore","80");
-        result.put("TheatreScore","90");
-        result.put("ClassroomScore","80");
-        return result;
+    	return "80";
+        //return null;
     }
 
 }
