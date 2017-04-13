@@ -61,10 +61,15 @@
 	<bean id="libraryService" class="com.service.impl.LibraryServiceImpl">
 	</bean>
 	
+	<bean id="GetAllLocationScoreService" class="com.service.impl.GetAllLocationScoreServiceImpl">
+	</bean>
+	
 	<bean id="echartsBathroomService" class="com.service.impl.EchartsBathroomServiceImpl">
 	</bean>
 	
 	<bean id="echartsLibraryService" class="com.service.impl.EchartsLibraryServiceImpl">
 	</bean>
+	
+	
 	
 </beans>

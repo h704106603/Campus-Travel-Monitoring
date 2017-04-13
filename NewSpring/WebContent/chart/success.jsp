@@ -338,7 +338,7 @@
 			    controlNav: false
 		    });
 		    
-		    $.getJSON("<%=request.getContextPath()%>/ShowScore",function(msg){
+		    $.getJSON("<%=request.getContextPath()%>/GetAllLocationScore",function(msg){
 	 			var LibraryScore = msg.LibraryScore;
 	 			var BathroomScore = msg.BathroomScore;
 	 			var CanteenScore = msg.CanteenScore;
