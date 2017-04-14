@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>浴室近一小时人数明细(刷新周期5分钟)</title>
+<title>图书馆近两小时人数明细(刷新周期5分钟)</title>
 <script type="text/javascript" src="<%=request.getContextPath()%>/chart/common/js/jquery-1.3.2.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/chart/common/FusionCharts/FusionChartsV3.js"></script>
 <style type="text/css">

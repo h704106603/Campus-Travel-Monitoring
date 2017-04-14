@@ -15,20 +15,14 @@ import net.sf.json.JSONObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.entity.Student;
-import com.entity.User;
 import com.service.BathroomService;
 import com.service.EchartsBathroomService;
-import com.service.FindStudentService;
-import com.service.FushionChartsTestService;
 
-import com.github.abel533.echarts.Option;
 
 
 @Controller
@@ -51,7 +45,7 @@ public class BathroomController {
   	
   	@RequestMapping(value = "/BathroomBar")
 	public ModelAndView BathroomBar(){
-		Map<String, Object> message =bathroomService.init();
+		Map<String, Object> message =bathroomService.Bar();
 		JSONObject json = JSONObject.fromObject(message);
 		return new ModelAndView("bathroomBar", "message", json.toString());
 	}

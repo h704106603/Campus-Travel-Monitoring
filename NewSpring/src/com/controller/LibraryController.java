@@ -38,7 +38,7 @@ public class LibraryController{
     //全部人数情况饼图
     @RequestMapping(value = "/LibraryBar")
     public ModelAndView LibraryBar(){
-        Map<String, Object> message =libraryService.init();
+        Map<String, Object> message =libraryService.Bar();
         JSONObject json = JSONObject.fromObject(message);
         return new ModelAndView("libraryBar", "message", json.toString());
     }
@@ -62,7 +62,6 @@ public class LibraryController{
     @RequestMapping(value = "/EchartsLibraryBar1",method= RequestMethod.GET) 
     @ResponseBody  
     public Map<String, Object> EchartsLibraryBar1(){  
-        System.out.println("执行了EchartsBathroomBar方法");
         Map<String, Object> result=new HashMap<String, Object>();
         String message = echartsLibraryService.LibraryBar("1"); 
         result.put("data",message);  
@@ -73,7 +72,6 @@ public class LibraryController{
     @RequestMapping(value = "/EchartsLibraryBar2",method= RequestMethod.GET) 
     @ResponseBody  
     public Map<String, Object> EchartsLibraryBar2(){  
-        System.out.println("执行了EchartsLibraryBar方法");
         Map<String, Object> result=new HashMap<String, Object>();
         String message = echartsLibraryService.LibraryBar("2"); 
         result.put("data",message);  

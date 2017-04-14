@@ -44,7 +44,7 @@ public class LibraryServiceImpl implements LibraryService{
     @Value("classpath:config/Bathroom/libraryBar.sql")
     private Resource libraryBarSql;
     
-    public Map<String, Object> init() {
+    public Map<String, Object> Bar() {
         return this.getData(false);
         
     }
@@ -66,21 +66,21 @@ public class LibraryServiceImpl implements LibraryService{
         Map<String, Object> reMap = new HashMap<String, Object>();
         
         try{
-            String re = bar("一层阅览室近两小时人数明细",libraryBarSql,"1");
+            String re = getBar("一层阅览室近两小时人数明细",libraryBarSql,"1");
             reMap.put("FirstReadingRoom", re);
         }catch(Exception e){
             e.printStackTrace();
         }
         
         try{
-            String re = bar("电子阅览室近两小时人数明细",libraryBarSql,"2");
+            String re = getBar("电子阅览室近两小时人数明细",libraryBarSql,"2");
             reMap.put("DigitalReadingRoom", re);
         }catch(Exception e){
             e.printStackTrace();
         }
         
         try{
-            String re = bar("自习室近两小时人数明细",libraryBarSql,"2");
+            String re = getBar("自习室近两小时人数明细",libraryBarSql,"2");
             reMap.put("SelfStudyRoom", re);
         }catch(Exception e){
             e.printStackTrace();
@@ -135,7 +135,7 @@ public class LibraryServiceImpl implements LibraryService{
         
     }
     
-    private String bar(String caption,Resource Rsql,String id) {
+    private String getBar(String caption,Resource Rsql,String id) {
         DateFormat format2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         DateFormat dft = new SimpleDateFormat("yyyyMMdd");
         MultiSeriesStackedChart2 chart = new MultiSeriesStackedChart2(caption+"(刷新周期5分钟) "+format2.format(new Date()), "000000", "0");

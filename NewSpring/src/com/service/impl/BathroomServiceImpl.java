@@ -46,7 +46,7 @@ public class BathroomServiceImpl implements BathroomService {
 	@Value("classpath:config/Bathroom/bathroomBar.sql")
 	private Resource bathroomBarSql;
 	
-	public Map<String, Object> init() {
+	public Map<String, Object> Bar() {
 		return this.getData(false);
 		
 	}
@@ -68,21 +68,21 @@ public class BathroomServiceImpl implements BathroomService {
 		Map<String, Object> reMap = new HashMap<String, Object>();
 		
 		try{
-			String re = bar("第一浴室近一小时人数明细",bathroomBarSql,"1");
+			String re = getBar("第一浴室近一小时人数明细",bathroomBarSql,"1");
 			reMap.put("FirstBathroom", re);
 		}catch(Exception e){
 			e.printStackTrace();
 		}
 		
 		try{
-			String re = bar("第二浴室近一小时人数明细",bathroomBarSql,"2");
+			String re = getBar("第二浴室近一小时人数明细",bathroomBarSql,"2");
 			reMap.put("SecondBathroom", re);
 		}catch(Exception e){
 			e.printStackTrace();
 		}
 		
 		try{
-			String re = bar("第三浴室近一小时人数明细",bathroomBarSql,"2");
+			String re = getBar("第三浴室近一小时人数明细",bathroomBarSql,"2");
 			reMap.put("ThirdBathroom", re);
 		}catch(Exception e){
 			e.printStackTrace();
@@ -130,7 +130,7 @@ public class BathroomServiceImpl implements BathroomService {
 		
 	}
 	
-	private String bar(String caption,Resource Rsql,String id) {
+	private String getBar(String caption,Resource Rsql,String id) {
 		DateFormat format2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		DateFormat dft = new SimpleDateFormat("yyyyMMdd");
 		MultiSeriesStackedChart2 chart = new MultiSeriesStackedChart2(caption+"(刷新周期5分钟) "+format2.format(new Date()), "000000", "0");
