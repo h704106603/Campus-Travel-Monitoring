@@ -67,21 +67,21 @@ public class CanteenServiceImpl implements CanteenService{
         
         try{
             String re = getBar("第一食堂近一小时人数明细",canteenBarSql,"1");
-            reMap.put("FirstBathroom", re);
+            reMap.put("FirstCanteen", re);
         }catch(Exception e){
             e.printStackTrace();
         }
         
         try{
             String re = getBar("第二食堂近一小时人数明细",canteenBarSql,"2");
-            reMap.put("SecondBathroom", re);
+            reMap.put("SecondCanteen", re);
         }catch(Exception e){
             e.printStackTrace();
         }
         
         try{
             String re = getBar("第三食堂近一小时人数明细",canteenBarSql,"2");
-            reMap.put("ThirdBathroom", re);
+            reMap.put("ThirdCanteen", re);
         }catch(Exception e){
             e.printStackTrace();
         }
