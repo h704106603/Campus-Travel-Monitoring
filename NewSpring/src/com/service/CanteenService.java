@@ -14,12 +14,12 @@ public interface CanteenService{
      * 返回食堂的所有人数明细情况
      * @return
      */
-    public Map<String,Object> Bar();
+    Map<String,Object> Bar();
     
     /**
      * 返回食堂的所有人数分布情况
      * @return
      */
-    public Map<String, Object> Pie();
+    Map<String, Object> Pie();
     
 }

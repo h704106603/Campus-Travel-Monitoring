@@ -21,7 +21,7 @@ public class CanteenController{
      * "/chart/success.jsp"
      * @return
      */
-    //食堂人数近一小时柱状图明细
+    //食堂近一小时人数柱状图明细
     @Autowired
     private CanteenService canteenService;
     
@@ -40,7 +40,7 @@ public class CanteenController{
         return new ModelAndView("canteenPie", "message", json.toString());
     }
     
-    //各个食堂
+    //各个食堂的分布情况
     @RequestMapping(value = "/EachCanteenPie")
     public ModelAndView EachCanteenPie(){
         Map<String, Object> message =canteenService.Pie();

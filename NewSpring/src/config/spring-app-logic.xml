@@ -59,7 +59,10 @@
 	<bean id="libraryService" class="com.service.impl.LibraryServiceImpl">
 	</bean>
 	
-	<bean id="CanteenService" class="com.service.impl.CanteenServiceImpl">
+	<bean id="canteenService" class="com.service.impl.CanteenServiceImpl">
+	</bean>
+	
+	<bean id="theatreService" class="com.service.impl.TheatreServiceImpl">
 	</bean>
 	
 	<bean id="GetAllLocationScoreService" class="com.service.impl.GetAllLocationScoreServiceImpl">
@@ -70,6 +73,11 @@
 	
 	<bean id="echartsLibraryService" class="com.service.impl.EchartsLibraryServiceImpl">
 	</bean>
+	
+	<bean id="theatreService" class="com.service.impl.TheatreServiceImpl">
+	</bean>
+	
+	
 	
 	
 	

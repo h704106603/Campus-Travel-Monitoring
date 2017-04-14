@@ -23,7 +23,6 @@ public class GetAllLocationScoreController{
     @RequestMapping(value = "/GetAllLocationScore",method= RequestMethod.GET) 
     @ResponseBody  
     public Map<String, Object> ShowScore(){  
-        System.out.println("ShowScore");
         Map<String, Object> result=new HashMap<String, Object>();
         result = getAllLocationScoreService.ShowScore();
         return result;  

@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Home</title>
+  <title>首页</title>
 
   <link href="<%=request.getContextPath()%>/chart/common/css/font-awesome.min.css" rel="stylesheet">
   <link href="<%=request.getContextPath()%>/chart/common/css/bootstrap.min.css" rel="stylesheet">
@@ -183,8 +183,8 @@
 					<div class="col-lg-3 col-md-3 col-sm-3"><hr></div>	
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
+			<div class="row" id="theatreShow">
+				<!-- <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
 					<div class="tm-home-box-2">						
 						<img src="<%=request.getContextPath()%>/chart/common/img/index-03.jpg" alt="image" class="img-responsive">
 						<h3>活动一</h3>
@@ -231,7 +231,7 @@
 							<a href="#" class="tm-home-box-2-link"><i class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 			<div class="row">
 				<div class="col-lg-12">
@@ -316,10 +316,17 @@
 	<footer class="tm-black-bg">
 		<div class="container">
 			<div class="row">
-				<p class="tm-copyright-text"></p>
+				<p class="tm-copyright-text">
+				智慧校园出行——hang&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				<a target="_blank" href="https://github.com/h704106603/hang">
+				本网站github项目地址
+				</a>
+				</p>
 			</div>
 		</div>		
 	</footer>
+	
+	
 	<script type="text/javascript" src="<%=request.getContextPath()%>/chart/common/js/jquery-1.11.2.min.js"></script>      		<!-- jQuery -->
   	<script type="text/javascript" src="<%=request.getContextPath()%>/chart/common/js/moment.js"></script>							<!-- moment.js -->
 	<script type="text/javascript" src="<%=request.getContextPath()%>/chart/common/js/bootstrap.min.js"></script>					<!-- bootstrap js -->
@@ -352,8 +359,20 @@
 	 			$("#ClassroomScore").html("出行指数："+classroomScore+"%");
 	 			
 	 		});
+		    
+		    $.getJSON("<%=request.getContextPath()%>/TheatreShowDetails",function(msg){
+	 			var theatreShowList = msg.theatreShowList;
+	 			var parentDom=$('#theatreShow');
+	 			//alert("数量:"+data.length);
+	 			
+	 			$.each(studentLocation,function(k,v){
+	 				parentDom.append("</div>");
+	 			});
+	 		});
 
 	  	});
 	</script>
+	
+	
  </body>
  </html>

@@ -16,6 +16,6 @@ public interface FindStudentService {
      * @param studentId 学生的id
      * @return 学生出行地点
      */
-	public List<StudentLocation> findStudent(String studentId);
+	List<StudentLocation> findStudent(String studentId);
 
 }
