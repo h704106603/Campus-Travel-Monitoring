@@ -59,6 +59,9 @@
 	<bean id="libraryService" class="com.service.impl.LibraryServiceImpl">
 	</bean>
 	
+	<bean id="CanteenService" class="com.service.impl.CanteenServiceImpl">
+	</bean>
+	
 	<bean id="GetAllLocationScoreService" class="com.service.impl.GetAllLocationScoreServiceImpl">
 	</bean>
 	

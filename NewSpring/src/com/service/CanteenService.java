@@ -8,7 +8,7 @@ import java.util.Map;
  * 食堂数据监控接口
  *
  */
-public interface CanteenScoreService{
+public interface CanteenService{
 
     /**
      * 返回食堂的所有人数明细情况
