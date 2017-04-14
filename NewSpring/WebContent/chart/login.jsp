@@ -55,7 +55,7 @@ i.fa.fa-times{
 				  <div class="form">
 					<h2>登录</h2>
 					<form action="doLogin" method="post">
-					  <input type="text" name="username" placeholder="学号" required=" ">
+					  <input type="text" name=studentId placeholder="学号" required=" ">
 					  <input type="password" name="password" placeholder="密码" required=" ">
 					  <input type="submit" value="确认">
 					</form>
@@ -63,7 +63,7 @@ i.fa.fa-times{
 				  <div class="form">
 					<h2>注册</h2>
 					<form action="doRegister" method="post">
-					  <input type="text" name="username" placeholder="学号" required=" ">
+					  <input type="text" name="studentId" placeholder="学号" required=" ">
 					  <input type="text" name="name" placeholder="姓名" required=" ">
 					   <input type="password" name="password" placeholder="密码" required=" ">
 					  <input type="text" name="grade" placeholder="班级" required=" ">

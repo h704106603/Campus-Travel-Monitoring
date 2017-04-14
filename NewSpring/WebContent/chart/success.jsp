@@ -29,6 +29,7 @@
   			<div class="row">
   				<div class="col-lg-4 col-md-2 col-sm-3 tm-site-name-container">
   					<a href="#" class="tm-site-name">智慧校园出行</a>	
+  					<p style="color: #FCDD44">欢迎你，<%=(String) session.getAttribute("name")%></p>
   				</div>
 	  			<div class="col-lg-8 col-md-10 col-sm-9">
 	  				<div class="mobile-menu-icon">
@@ -37,7 +38,7 @@
 	  				<nav class="tm-nav">
 						<ul>
 							<li><a href="<%=request.getContextPath()%>/Index" class="active">首页</a></li>
-							<li><a href="<%=request.getContextPath()%>/findFriend?username=<%=(String) session.getAttribute("username")%>">好友情况</a></li>
+							<li><a href="<%=request.getContextPath()%>/findFriend?studentId=<%=(String) session.getAttribute("studentId")%>">好友情况</a></li>
 							<li><a href="about.html">图书馆</a></li>
 							<li><a href="<%=request.getContextPath()%>/BathroomIndex">公共浴室</a></li>
 							<li><a href="about.html">食堂</a></li>
@@ -76,7 +77,7 @@
 			    <div class="tm-banner-inner">
 					<h1 class="tm-banner-title">我的<span class="tm-yellow-text">好友</span>情况</h1>
 					<p class="tm-banner-subtitle">My Friend</p>
-					<a href="<%=request.getContextPath()%>/findFriend?username=<%=(String) session.getAttribute("username")%>" class="tm-banner-link">了解更多</a>	
+					<a href="<%=request.getContextPath()%>/findFriend?studentId=<%=(String) session.getAttribute("studentId")%>" class="tm-banner-link">了解更多</a>	
 				</div>
 		      <img src="<%=request.getContextPath()%>/chart/common/img/banner-3.jpg" alt="Image" />
 		    </li>
@@ -160,7 +161,7 @@
 			<div class="col-lg-4 col-md-4 col-sm-6">
 				<div class="tm-home-box-1 tm-home-box-1-2 tm-home-box-1-right">
 					<img src="<%=request.getContextPath()%>/chart/common/img/friend.jpg" alt="image" class="img-responsive">
-					<a href="<%=request.getContextPath()%>/findFriend?username=<%=(String) session.getAttribute("username")%>">
+					<a href="<%=request.getContextPath()%>/findFriend?studentId=<%=(String) session.getAttribute("studentId")%>">
 						<div class="tm-red-gradient-bg tm-city-price-container">
 							<span>好友</span>
 							<span>出没情况</span>

@@ -1,15 +1,14 @@
 package com.controller;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.apache.http.HttpRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.entity.Student;
 import com.service.LoginService;
 
 @Controller
@@ -28,14 +27,17 @@ public class LoginController {
 	}
 	
   	@RequestMapping(value = "/doLogin", method = RequestMethod.POST)
-  	public ModelAndView doLogin(String username,String password,HttpSession session){
+  	public ModelAndView doLogin(String studentId,String password,HttpSession session){
   		
-  		session.setAttribute("username", username);
+  		
   		//为了调试其他功能，可以跳过数据库验证
-//  		if(loginService.isAdmin(username, password)){
+//  		if(loginService.isAdmin(studentId, password)){
 //  			return new ModelAndView("success");
 //  		}
   		if(true){
+  		    Student student = loginService.getStudentById(studentId);
+  		    session.setAttribute("name", student.getName());
+  		    session.setAttribute("studentId", studentId);
             return new ModelAndView("success");
         }
   		else{
@@ -47,11 +49,13 @@ public class LoginController {
   	
   	
   	@RequestMapping(value = "/doRegister", method = RequestMethod.POST)
-  	public ModelAndView doRegister(String username,String password,String name,String grade,HttpSession session){
+  	public ModelAndView doRegister(String studentId,String password,String name,String grade,HttpSession session){
   		
-  		session.setAttribute("username", username);
-  		if(loginService.Register(username, name, grade, password)){
-  			return new ModelAndView("success");
+  		
+  		if(loginService.Register(studentId, name, grade, password)){
+  		    session.setAttribute("studentId", studentId);
+  		    session.setAttribute("name", name);
+  		    return new ModelAndView("success");
   		}
   		else{
   			return new ModelAndView("login","wrongmessage","注册失败");

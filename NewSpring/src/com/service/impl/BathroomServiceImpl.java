@@ -31,7 +31,6 @@ import com.fusionCharts.common.style.Styles;
 import com.service.BathroomService;
 import com.util.ResourceUtils;
 
-@Service("bathroomService")
 public class BathroomServiceImpl implements BathroomService {
 
 	@javax.annotation.Resource(name="LocalOracleDao")
@@ -214,8 +213,6 @@ public class BathroomServiceImpl implements BathroomService {
 		chart.setLegendBorderColor("415D6F");
 		chart.setBaseFontColor("00FF00");
 		chart.setShowValues("1");
-		
-		//用来匹配sql语句中的id
 		
 		List<Object[]>  dataList = new ArrayList<Object[]>();
 		try {

@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 
 import com.entity.StudentLocation;
-import com.entity.User;
 import com.service.FindStudentService;
 import com.util.ResourceUtils;
 

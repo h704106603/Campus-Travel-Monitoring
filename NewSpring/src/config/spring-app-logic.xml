@@ -30,8 +30,6 @@
                  </list>     
            </property>    
     </bean>  
-	<bean id="fushionChartsTestService" class="com.service.impl.FushionChartsTestServiceImpl">
-	</bean>
 	
 	<bean id="findStudentService" class="com.service.impl.FindStudentServiceImpl">
 	</bean>

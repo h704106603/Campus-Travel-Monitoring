@@ -38,8 +38,8 @@ public class ShowFriendsController {
      */
 
   	@RequestMapping(value = "/findFriend", method= RequestMethod.GET) 
-    public String findFriend(String username,Model model) {  
-        model.addAttribute("studentId", username);
+    public String findFriend(String studentId,Model model) {  
+        model.addAttribute("studentId", studentId);
         return "showFriend";  
     }
   	

@@ -30,4 +30,11 @@ public class LoginServiceImpl implements LoginService {
 		
 		return (studentService.saveStudent(new Student(id, name, grade, password)));
 	}
+
+    @Override
+    public Student getStudentById(String id){
+        Student student = studentService.getStudentById(id);
+        return student;
+    }
+
 }

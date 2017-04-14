@@ -7,6 +7,7 @@ import com.dao.ExecuteQuery;
 import com.entity.Student;
 import com.service.StudentService;
 
+
 public class StudentServiceImpl implements StudentService {
 
 	@javax.annotation.Resource(name="LocalOracleDao")
@@ -41,5 +42,11 @@ public class StudentServiceImpl implements StudentService {
 		boolean ifInsertSuccess = ExecuteQuery.executeQuery(sql);
 		return ifInsertSuccess;
 	}
+
+    @Override
+    public Student getStudentById(String id){
+        Student student = new Student(id, "杭晓言", "计科131", "hxy45289-");
+        return student;
+    }
 
 }
