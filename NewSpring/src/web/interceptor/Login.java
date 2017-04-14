@@ -23,7 +23,7 @@ public class Login extends HandlerInterceptorAdapter{
         }
         if (!flag) {
             
-           String user = (String) request.getSession().getAttribute("username");
+           String user = (String) request.getSession().getAttribute("studentId");
             if (user!= null){
                 flag = true;
             }

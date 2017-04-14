@@ -95,7 +95,7 @@
 						<div class="tm-green-gradient-bg tm-city-price-container">
 							<span>图书馆</span>
 							<span>实时监控</span>
-							<span id="LibraryScore">出行指数:0</span>
+							<span id="LibraryScore">出行指数:</span>
 						</div>	
 					</a>			
 				</div>				
