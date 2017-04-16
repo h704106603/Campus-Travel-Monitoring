@@ -37,6 +37,9 @@ public class EchartsClassroomServiceImpl implements EchartsClassroomService{
     @Value("classpath:config/Classroom/Classroom.sql")
     private Resource classroomSql;
     
+    @Value("classpath:config/Classroom/findAllClassroom.sql")
+    private Resource findAllClassroomSql;
+    
     public String ClassroomBar(String classroom){
         
         return showBar("教室人数明细",classroomSql,classroom);
@@ -47,13 +50,21 @@ public class EchartsClassroomServiceImpl implements EchartsClassroomService{
     public List<String> findClassroomId(){
         
         List<String> ClassroomIdlist = new ArrayList<String>();
-        ClassroomIdlist.add("7#410");
-        ClassroomIdlist.add("7#411");
-        ClassroomIdlist.add("7#412");
-        ClassroomIdlist.add("7#413");
-        ClassroomIdlist.add("7#414");
-        ClassroomIdlist.add("7#415");
-        ClassroomIdlist.add("7#416");
+        try {
+            String sql = ResourceUtils.getStringFromResource(findAllClassroomSql);
+            List<Object[]> list = LocalOracleDao.getResultForSql(sql);
+            
+            if(list!=null && list.size()>0){
+                
+                for(Object[] obj:list){ 
+                    String classroom = obj[0] == null? "0" : obj[0].toString(); 
+                    ClassroomIdlist.add(classroom);
+                }
+            }
+        }
+        catch (Exception e1) {
+            e1.printStackTrace();
+        }
         
         return ClassroomIdlist;
         
@@ -133,19 +144,10 @@ public class EchartsClassroomServiceImpl implements EchartsClassroomService{
         dataStyl2.normal().labelLine().show(false);
         line1.itemStyle(dataStyl2);*/
         try {
-//            Date dt=new Date();
-//            String sql = ResourceUtils.getStringFromResource(Rsql);
-//            sql = sql.replaceAll("\\{id\\}", id);
-//            List<Object[]> list = LocalOracleDao.getResultForSql(sql);
-        	List<Object[]> list = new ArrayList<Object[]>();
-        	Object[] obj1 = new Object[3];
-        	obj1[0] = "12:00";
-        	obj1[1] = "100";
-        	obj1[2] = "200";
-        	for(int i=0;i<20;i++){
-        		list.add(obj1);
-        	}
-        	
+            Date dt=new Date();
+            String sql = ResourceUtils.getStringFromResource(Rsql);
+            sql = sql.replaceAll("\\{id\\}", id);
+            List<Object[]> list = LocalOracleDao.getResultForSql(sql);
             
             if(list!=null && list.size()>0){
                 

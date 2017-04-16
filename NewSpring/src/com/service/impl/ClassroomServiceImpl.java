@@ -216,23 +216,23 @@ public class ClassroomServiceImpl implements ClassroomService {
         
         String name = new String();
         
-        Lineset DataSet1 = new Lineset(color1, "昨日"+name+"量", new LinkedList<Set>(), "0");
-        Dataset DataSet2 = new Dataset(color2, "今日"+name+"量", new LinkedList<Set>(), "0");
+        Dataset DataSet2 = new Dataset(color2, "教室人数", new LinkedList<Set>(), "0");
         //DataSet1.setRenderAs("Line");
         //DataSet4.setRenderAs("Line");
         LinkedList<Dataset> datasets_1 = new LinkedList<Dataset>();
         LinkedList<Datasets> datasets1 = new LinkedList<Datasets>();
-        LinkedList<Lineset> Linesets = new LinkedList<Lineset>();
         Datasets dts1 = new Datasets(datasets_1);
         dts1.addDataset(DataSet2);
         datasets1.add(dts1);
         
-        Linesets.add(DataSet1);
         
         try {
             String sql = ResourceUtils.getStringFromResource(Rsql);
             sql = sql.replaceAll("\\{AcademicBuilding\\}", AcademicBuilding);
             List<Object[]> list = LocalOracleDao.getResultForSql(sql);
+            for (Object[] objects : list) {
+            	System.out.println(objects[0]);;
+			}
             if(list!=null && list.size()>0){
                 for (Object[] objData : list) {
                     String time = objData[0]==null ? "" : String.valueOf(objData[0]);
@@ -251,7 +251,6 @@ public class ClassroomServiceImpl implements ClassroomService {
         datasets_1.add(DataSet2);
         chart.setCategory(categories);
         chart.setDatasets(datasets1);
-        chart.setLineset(Linesets);
         return chart.toXML();
     }
     

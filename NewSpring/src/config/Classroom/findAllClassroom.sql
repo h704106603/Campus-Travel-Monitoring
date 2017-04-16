@@ -1,0 +1,1 @@
+select distinct classroom,1 from classroom

@@ -56,15 +56,20 @@
             // --- 地图 ---
         	var option = ec.init(document.getElementById('chartdiv1'));
         	 
-        	var select = document.getElementById("classroomId");
-    		var index = select.selectedIndex;
-    		var selectedData = select.options[index].value;
-        	var update = {"classroom":"10"};
         	
-        	$.getJSON("<%=request.getContextPath()%>/EchartsClassroomById",update, function(msg){
-        		var data = msg.data;
-        		var json = JSON.parse(data);
-        		option.setOption(json);
+        	
+        	$("select").change(function(){
+        		
+        		var select = document.getElementById("classroomId");
+        		var index = select.selectedIndex;
+        		var selectedData = select.options[index].value;
+            	var update = {"classroom":selectedData};
+            	
+            	$.getJSON("<%=request.getContextPath()%>/EchartsClassroomById",update, function(msg){
+            		var data = msg.data;
+            		var json = JSON.parse(data);
+            		option.setOption(json);
+            	});
         	});
             
             

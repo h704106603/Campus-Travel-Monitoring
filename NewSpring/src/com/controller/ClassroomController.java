@@ -33,7 +33,7 @@ public class ClassroomController {
 	 * @return
 	 */
 	@RequestMapping("/EchartsClassroomBar")
-  	public ModelAndView BathroomIndex(Model model,
+  	public ModelAndView EchartsClassroomBar(Model model,
                     HttpServletRequest request){
 	    List<String> ClassroomIdList = echartsClassroomService.findClassroomId();
 	    model.addAttribute("ClassroomIdList", ClassroomIdList);
