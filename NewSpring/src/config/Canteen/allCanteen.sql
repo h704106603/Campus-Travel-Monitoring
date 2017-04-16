@@ -1,5 +1,5 @@
 
-select '第一食堂', count(t1.studentid) countstudentid
+select '一', count(t1.studentid) countstudentid
   from canteen t1
  where t1.canteen = '1'
    and type = 'in'
@@ -28,7 +28,7 @@ select '第一食堂', count(t1.studentid) countstudentid
 
 union all
 
-select '第二食堂', count(t1.studentid) countstudentid
+select '二', count(t1.studentid) countstudentid
   from canteen t1
  where t1.canteen = '2'
    and type = 'in'
@@ -57,7 +57,7 @@ select '第二食堂', count(t1.studentid) countstudentid
                   
 union all
 
-select '第三食堂', count(t1.studentid) countstudentid
+select '三', count(t1.studentid) countstudentid
   from canteen t1
  where t1.canteen = '3'
    and type = 'in'

@@ -74,6 +74,9 @@
 	<bean id="theatreService" class="com.service.impl.TheatreServiceImpl">
 	</bean>
 	
+	<bean id="classroomService" class="com.service.impl.ClassroomServiceImpl">
+	</bean>
+	
 	
 	
 	
