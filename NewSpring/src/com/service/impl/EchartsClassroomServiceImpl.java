@@ -129,14 +129,12 @@ public class EchartsClassroomServiceImpl implements EchartsClassroomService{
         placeHolderStyle.normal().color("#33CC33").label(new Label().show(false)).labelLine().show(false);
         placeHolderStyle.emphasis().color("#33CC33");
 
-//      Bar bar1 = new Bar("已使用");
-//      bar1.markPoint(markPoint).itemStyle(placeHolderStyle);
-        Bar  line1 = new Bar("昨日人数");
+        Bar  line1 = new Bar("今日人数");
         ItemStyle dataStyl1 = new ItemStyle();
         dataStyl1.normal().color("#FF9900").label().show(false);
         dataStyl1.normal().labelLine().show(false);
         line1.itemStyle(dataStyl1);
-        Bar  line2 = new Bar("今日人数");
+        Bar  line2 = new Bar("昨日人数");
         ItemStyle dataStyl2 = new ItemStyle();
         dataStyl1.normal().color("#00FF00").label().show(false);
         dataStyl1.normal().labelLine().show(false);

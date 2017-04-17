@@ -80,7 +80,7 @@ public class CanteenServiceImpl implements CanteenService{
         }
         
         try{
-            String re = getBar("第三食堂近一小时人数明细",canteenBarSql,"2");
+            String re = getBar("第三食堂近一小时人数明细",canteenBarSql,"3");
             reMap.put("ThirdCanteen", re);
         }catch(Exception e){
             e.printStackTrace();

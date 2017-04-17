@@ -16,7 +16,12 @@ select temptime.startTime startTime, nvl(todayclassroom.studentNumber, 0) todays
           
             and time < trunc(sysdate,'mi')
             and time > sysdate - 1 / 24
-          group by t.time
+          group by to_char(trunc(decode(mod(to_number(to_char(t.time, 'mi')), 2),
+                                     0,
+                                     t.time,
+                                     t.time - 1 / 24 / 60),
+                              'mi'),
+                        'hh24:mi')
           ) todayclassroom,
           
           (select to_char(trunc(decode(mod(to_number(to_char(t.time, 'mi')), 2),
@@ -31,7 +36,12 @@ select temptime.startTime startTime, nvl(todayclassroom.studentNumber, 0) todays
             and time > sysdate - 1 / 24  - 1
             and time < sysdate - 1 
             and t.type = 'in'
-          group by t.time
+          group by to_char(trunc(decode(mod(to_number(to_char(t.time, 'mi')), 2),
+                                     0,
+                                     t.time,
+                                     t.time - 1 / 24 / 60),
+                              'mi'),
+                        'hh24:mi')
           ) yesterdayclassroom,
        
         (select to_char(2 * (level - 18) / 24 / 60 +

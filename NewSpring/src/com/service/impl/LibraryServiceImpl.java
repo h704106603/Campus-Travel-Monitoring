@@ -80,7 +80,7 @@ public class LibraryServiceImpl implements LibraryService{
         }
         
         try{
-            String re = getBar("自习室近一小时人数明细",libraryBarSql,"2");
+            String re = getBar("自习室近一小时人数明细",libraryBarSql,"3");
             reMap.put("SelfStudyRoom", re);
         }catch(Exception e){
             e.printStackTrace();
