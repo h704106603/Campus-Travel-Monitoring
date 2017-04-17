@@ -83,6 +83,8 @@
 	<bean id="theatreShowDetailsService" class="com.service.impl.TheatreShowDetailsServiceImpl">
 	</bean>
 	
+	<bean id="associationDetailsService" class="com.service.impl.AssociationDetailsServiceImpl">
+	</bean>
 	
 	
 	

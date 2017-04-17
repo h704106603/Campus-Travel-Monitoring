@@ -61,7 +61,7 @@
 			    <div class="tm-banner-inner">
 					<h1 class="tm-banner-title">近期的<span class="tm-yellow-text">剧场</span>活动</h1>
 					<p class="tm-banner-subtitle">recent shows</p>
-					<a href="#more" class="tm-banner-link">了解更多</a>	
+					<a href="#theatreShowInIndex" class="tm-banner-link">了解更多</a>	
 				</div>
 				<img src="<%=request.getContextPath()%>/chart/common/img/banner-1.jpg" alt="Image" />	
 		    </li>
@@ -69,7 +69,7 @@
 			    <div class="tm-banner-inner">
 					<h1 class="tm-banner-title">各大<span class="tm-yellow-text">出入地</span>状态</h1>
 					<p class="tm-banner-subtitle">All kinds of places</p>
-					<a href="#more" class="tm-banner-link">了解更多</a>	
+					<a href="FiveLocationIndex" class="tm-banner-link">了解更多</a>	
 				</div>
 		      <img src="<%=request.getContextPath()%>/chart/common/img/banner-2.jpg" alt="Image" />
 		    </li>
@@ -86,13 +86,13 @@
 	</section>
 
 	<!-- gray bg -->	
-	<section class="container tm-home-section-1" id="more">
+	<section class="container tm-home-section-1">
 		<div class="row">
 			<div class="col-lg-4 col-md-4 col-sm-6">
 				<div class="tm-home-box-1 tm-home-box-1-2 tm-home-box-1-center">
 					<img src="<%=request.getContextPath()%>/chart/common/img/library.jpg" alt="image" class="img-responsive">
 					<a href="#">
-						<div class="tm-green-gradient-bg tm-city-price-container">
+						<div class="tm-green-gradient-bg tm-city-price-container" id="library">
 							<span>图书馆</span>
 							<span>实时监控</span>
 							<span id="LibraryScore">出行指数:</span>
@@ -173,83 +173,15 @@
 		</div>	
 				
 		</div>
-		<%-- <%@include file="<%=request.getContextPath()%>/TheatreShowInIndex" %> --%>
-		 <iframe  src="<%=request.getContextPath()%>/TheatreShowInIndex" style="width:100%; height:690px;border-width: 0px;"></iframe>
+		 <iframe  src="<%=request.getContextPath()%>/TheatreShowInIndex" style="width:100%; height:690px;border-width: 0px;" id="theatreShowInIndex"></iframe>
 	</section>	
 	
 	
-	<!-- white bg -->
-	<section class="tm-white-bg section-padding-bottom">
-		<div class="container">
-			<div class="row">
-				<div class="tm-section-header section-margin-top">
-					<div class="col-lg-4 col-md-3 col-sm-3"><hr></div>
-					<div class="col-lg-4 col-md-6 col-sm-6"><h2 class="tm-section-title">近期社团活动</h2></div>
-					<div class="col-lg-4 col-md-3 col-sm-3"><hr></div>	
-				</div>
-				<div class="col-lg-6">
-					<div class="tm-home-box-3">
-						<div class="tm-home-box-3-img-container">
-							<img src="<%=request.getContextPath()%>/chart/common/img/index-07.jpg" alt="image" class="img-responsive">	
-						</div>						
-						<div class="tm-home-box-3-info">
-							<p class="tm-home-box-3-description">活动介绍</p>
-					        <div class="tm-home-box-2-container">
-							<a href="#" class="tm-home-box-2-link"><i class="fa fa-heart tm-home-box-2-icon border-right"></i></a>
-							<a href="#" class="tm-home-box-2-link"><span class="tm-home-box-2-description box-3">点赞/评论</span></a>
-							<a href="#" class="tm-home-box-2-link"><i class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
-						</div>
-						</div>						
-					</div>					
-			     </div>
-			     <div class="col-lg-6">
-			        <div class="tm-home-box-3">
-						<div class="tm-home-box-3-img-container">
-							<img src="<%=request.getContextPath()%>/chart/common/img/index-08.jpg" alt="image" class="img-responsive">	
-						</div>						
-						<div class="tm-home-box-3-info">
-							<p class="tm-home-box-3-description">活动介绍</p>
-					        <div class="tm-home-box-2-container">
-							<a href="#" class="tm-home-box-2-link"><i class="fa fa-heart tm-home-box-2-icon border-right"></i></a>
-							<a href="#" class="tm-home-box-2-link"><span class="tm-home-box-2-description box-3">点赞/评论</span></a>
-							<a href="#" class="tm-home-box-2-link"><i class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
-						</div>
-						</div>						
-					</div>
-				</div>
-				<div class="col-lg-6">
-				    <div class="tm-home-box-3">
-						<div class="tm-home-box-3-img-container">
-							<img src="<%=request.getContextPath()%>/chart/common/img/index-09.jpg" alt="image" class="img-responsive">	
-						</div>						
-						<div class="tm-home-box-3-info">
-							<p class="tm-home-box-3-description">活动介绍大概字数要大于多少呢---------------------------fdsfds-------------------------------------------------</p>
-					        <div class="tm-home-box-2-container">
-							<a href="#" class="tm-home-box-2-link"><i class="fa fa-heart tm-home-box-2-icon border-right"></i></a>
-							<a href="#" class="tm-home-box-2-link"><span class="tm-home-box-2-description box-3">点赞/评论</span></a>
-							<a href="#" class="tm-home-box-2-link"><i class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
-						</div>
-						</div>						
-					</div>
-			    </div>
-			    <div class="col-lg-6">
-			        <div class="tm-home-box-3">
-						<div class="tm-home-box-3-img-container">
-							<img src="<%=request.getContextPath()%>/chart/common/img/index-10.jpg" alt="image" class="img-responsive">	
-						</div>						
-						<div class="tm-home-box-3-info">
-							<p class="tm-home-box-3-description">活动介绍</p>
-					        <div class="tm-home-box-2-container">
-							<a href="#" class="tm-home-box-2-link"><i class="fa fa-heart tm-home-box-2-icon border-right"></i></a>
-							<a href="#" class="tm-home-box-2-link"><span class="tm-home-box-2-description box-3">点赞/评论</span></a>
-							<a href="#" class="tm-home-box-2-link"><i class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
-						</div>
-						</div>						
-					</div>
-			   	</div>
-			</div>		
-		</div>
-	</section>
+		<iframe  src="<%=request.getContextPath()%>/AssociationInIndex" style="width:100%; height:900px;border-width: 0px;"></iframe>
+		
+	
+	
+	
 	<footer class="tm-black-bg">
 		<div class="container">
 			<div class="row">

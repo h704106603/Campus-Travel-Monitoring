@@ -7,12 +7,14 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 
 import com.dao.BaseDao;
+import com.entity.AssociationDetails;
 import com.entity.Student;
-import com.entity.TheatreShowDetails;
-import com.service.TheatreShowDetailsService;
+import com.entity.AssociationDetails;
+import com.service.AssociationDetailsService;
+import com.service.AssociationDetailsService;
 import com.util.ResourceUtils;
 
-public class TheatreShowDetailsServiceImpl implements TheatreShowDetailsService {
+public class AssociationDetailsServiceImpl implements AssociationDetailsService {
 
 	@javax.annotation.Resource(name="LocalOracleDao")
     private com.dao.LocalOracleDao LocalOracleDao;
@@ -20,19 +22,19 @@ public class TheatreShowDetailsServiceImpl implements TheatreShowDetailsService 
 	@javax.annotation.Resource(name = "baseDao")
 	private BaseDao baseDao;
 	
-    @Value("classpath:config/TheatreShow/showTheatreShowDetails.sql")
-    private Resource ShowTheatreShowDetailsSql;
+    @Value("classpath:config/Association/showAssociationDetails.sql")
+    private Resource ShowAssociationDetailsSql;
     
-    @Value("classpath:config/TheatreShow/theatreThumbs.sql")
-    private Resource TheatreThumbsSql;
+    @Value("classpath:config/Association/associationThumbs.sql")
+    private Resource AssociationThumbsSql;
     
 	@Override
-	public List<TheatreShowDetails> ShowTheatreShowDetails() {
+	public List<AssociationDetails> ShowAssociationDetails() {
 		
-		List<TheatreShowDetails> theatreShowDetailsList = new ArrayList<TheatreShowDetails>();
+		List<AssociationDetails> associationDetailsList = new ArrayList<AssociationDetails>();
 		
 		try {
-			String sql = ResourceUtils.getStringFromResource(ShowTheatreShowDetailsSql);
+			String sql = ResourceUtils.getStringFromResource(ShowAssociationDetailsSql);
 			List<Object[]> list = LocalOracleDao.getResultForSql(sql);
 			if(list!=null && list.size()>0){
 				
@@ -43,7 +45,7 @@ public class TheatreShowDetailsServiceImpl implements TheatreShowDetailsService 
 					String time = obj[3] == null? "0" : obj[3].toString();
 					String count = obj[4] == null? "0" : obj[4].toString();
 					
-					theatreShowDetailsList.add(new TheatreShowDetails(id, name, imgSrc, time, count));
+					associationDetailsList.add(new AssociationDetails(id, name, imgSrc, time, count));
 				}
 			}
 			else{
@@ -53,15 +55,15 @@ public class TheatreShowDetailsServiceImpl implements TheatreShowDetailsService 
 		catch (Exception e1) {
 			e1.printStackTrace();
 		}
-		return theatreShowDetailsList;
+		return associationDetailsList;
 	}
 
 	@Override
-	public void TheatreThumbs(String id) {
+	public void AssociationThumbs(String id) {
 		
 		
 		try {
-			String sql = ResourceUtils.getStringFromResource(TheatreThumbsSql);
+			String sql = ResourceUtils.getStringFromResource(AssociationThumbsSql);
 			sql = sql.replaceAll("\\{id\\}", id);
 			System.out.println(sql);
 			this.baseDao.executeUpdate(sql,null);
@@ -69,7 +71,7 @@ public class TheatreShowDetailsServiceImpl implements TheatreShowDetailsService 
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("--------------剧场信息id为:"+id);
+		System.out.println("--------------社团活动信息id为:"+id);
 		
 	}
 

@@ -230,9 +230,6 @@ public class ClassroomServiceImpl implements ClassroomService {
             String sql = ResourceUtils.getStringFromResource(Rsql);
             sql = sql.replaceAll("\\{AcademicBuilding\\}", AcademicBuilding);
             List<Object[]> list = LocalOracleDao.getResultForSql(sql);
-            for (Object[] objects : list) {
-            	System.out.println(objects[0]);;
-			}
             if(list!=null && list.size()>0){
                 for (Object[] objData : list) {
                     String time = objData[0]==null ? "" : String.valueOf(objData[0]);

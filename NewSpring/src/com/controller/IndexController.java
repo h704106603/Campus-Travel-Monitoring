@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.entity.AssociationDetails;
 import com.entity.TheatreShowDetails;
+import com.service.AssociationDetailsService;
 import com.service.LoginService;
 import com.service.StudentService;
 import com.service.TheatreShowDetailsService;
@@ -32,6 +34,15 @@ public class IndexController {
 	@RequestMapping("/Index")
   	public ModelAndView Index(){
 		return new ModelAndView("success");
+	}
+	
+	/**
+	 * 五大出行地
+	 * @return
+	 */
+	@RequestMapping("/FiveLocationIndex")
+  	public ModelAndView FiveLocationIndex(){
+		return new ModelAndView("fiveLocationIndex");
 	}
 	
 	/**
@@ -88,6 +99,22 @@ public class IndexController {
     	return new ModelAndView("theatreShowInIndex");
     }
   	
+    
+
+	@Autowired
+	private AssociationDetailsService associationDetailsService;
+    
+    /**
+     * 转到首页中的社团活动展示模块
+     * @return
+     */
+    @RequestMapping("/AssociationInIndex")
+    public ModelAndView AssociationInIndex(Model model){
+    	
+    	List<AssociationDetails> associationDetailsList = associationDetailsService.ShowAssociationDetails();
+        model.addAttribute(associationDetailsList);
+    	return new ModelAndView("associationInIndex");
+    }
     
     
 	
