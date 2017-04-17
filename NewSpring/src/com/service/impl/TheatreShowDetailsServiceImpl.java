@@ -69,8 +69,6 @@ public class TheatreShowDetailsServiceImpl implements TheatreShowDetailsService 
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("--------------剧场信息id为:"+id);
-		
 	}
 
 }

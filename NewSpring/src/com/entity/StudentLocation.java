@@ -2,14 +2,23 @@ package com.entity;
 
 import java.util.Map;
 
+/**
+ * 
+ * @author Hangxy
+ *
+ */
 public class StudentLocation{
 
+	//学生姓名
     private String name;
     
-    private String grade;//这里指班级
+    //这里指班级
+    private String grade;
    
+    //出入地点
     private String locationMap ;
 
+    //学生id
     private String id;
     
     

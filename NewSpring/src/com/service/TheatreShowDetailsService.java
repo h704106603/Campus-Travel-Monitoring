@@ -4,6 +4,11 @@ import java.util.List;
 
 import com.entity.TheatreShowDetails;
 
+/**
+ * 
+ * @author hangxiao
+ *
+ */
 public interface TheatreShowDetailsService {
 
 	/**

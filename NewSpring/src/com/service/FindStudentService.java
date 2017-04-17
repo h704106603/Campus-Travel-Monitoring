@@ -15,7 +15,7 @@ public interface FindStudentService {
     /**
      * 
      * @param studentId 学生的id
-     * @return 学生出行地点
+     * @return 所有好友出行地点
      */
 	List<StudentLocation> findStudent(String studentId);
 	
@@ -23,7 +23,7 @@ public interface FindStudentService {
 	/**
      * 
      * @param studentId 学生的id
-     * @return 学生出行地点
+     * @return 指定好友出行地点明细
      */
 	List<LocationDetails> findStudentDetails(String studentId);
 

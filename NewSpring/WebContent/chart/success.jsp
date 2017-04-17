@@ -93,7 +93,7 @@
 			<div class="col-lg-4 col-md-4 col-sm-6">
 				<div class="tm-home-box-1 tm-home-box-1-2 tm-home-box-1-center">
 					<img src="<%=request.getContextPath()%>/chart/common/img/library.jpg" alt="image" class="img-responsive">
-					<a href="#">
+					<a href="<%=request.getContextPath()%>/LibraryIndex">
 						<div class="tm-green-gradient-bg tm-city-price-container" id="library">
 							<span>图书馆</span>
 							<span>实时监控</span>
@@ -119,7 +119,7 @@
 			<div class="col-lg-4 col-md-4 col-sm-6">
 				<div class="tm-home-box-1 tm-home-box-1-2 tm-home-box-1-right">
 					<img src="<%=request.getContextPath()%>/chart/common/img/lunch.jpg" alt="image" class="img-responsive">
-					<a href="#">
+					<a href="<%=request.getContextPath()%>/CanteenIndex">
 						<div class="tm-red-gradient-bg tm-city-price-container">
 							<span>食堂</span>
 							<span>实时监控</span>
@@ -138,7 +138,7 @@
 			<div class="col-lg-4 col-md-4 col-sm-6">
 				<div class="tm-home-box-1 tm-home-box-1-2 tm-home-box-1-center">
 					<img src="<%=request.getContextPath()%>/chart/common/img/theater.jpg" alt="image" class="img-responsive">
-					<a href="#">
+					<a href="<%=request.getContextPath()%>/TheatreIndex">
 						<div class="tm-green-gradient-bg tm-city-price-container">
 							<span>剧场</span>
 							<span>实时监控</span>
@@ -151,7 +151,7 @@
 			<div class="col-lg-4 col-md-4 col-sm-6">
 				<div class="tm-home-box-1 tm-home-box-1-2 tm-home-box-1-center">
 					<img src="<%=request.getContextPath()%>/chart/common/img/classroom.jpg" alt="image" class="img-responsive">
-					<a href="#">
+					<a href="<%=request.getContextPath()%>/ClassroomIndex">
 						<div class="tm-yellow-gradient-bg tm-city-price-container">
 							<span>教室</span>
 							<span>实时监控</span>

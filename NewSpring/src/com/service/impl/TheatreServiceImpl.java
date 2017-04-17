@@ -55,19 +55,6 @@ public class TheatreServiceImpl implements TheatreService{
         
     }
     
-    @Override
-    public List<TheatreShow> findTheatreShowDetails(){
-
-        List<TheatreShow> theatreShowList = new ArrayList<TheatreShow>();
-        for(int i=0;i<6;i++){
-            
-            TheatreShow theatreShow = new TheatreShow("大音社专场晚会", "2017年4月14日18点半", "由大音社的3支乐队以及十大歌手人气选手们为大家带来的演出，快来看吧！", 800, "pictureUrl");
-            theatreShowList.add(theatreShow);
-            
-        }
-        return theatreShowList;
-    }
-    
     public Map<String,Object> getData(boolean flag){
         Date date = new Date();
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:00");

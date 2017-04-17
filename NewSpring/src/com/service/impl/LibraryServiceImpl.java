@@ -66,21 +66,21 @@ public class LibraryServiceImpl implements LibraryService{
         Map<String, Object> reMap = new HashMap<String, Object>();
         
         try{
-            String re = getBar("一层阅览室近两小时人数明细",libraryBarSql,"1");
+            String re = getBar("一层阅览室近一小时人数明细",libraryBarSql,"1");
             reMap.put("FirstReadingRoom", re);
         }catch(Exception e){
             e.printStackTrace();
         }
         
         try{
-            String re = getBar("电子阅览室近两小时人数明细",libraryBarSql,"2");
+            String re = getBar("电子阅览室近一小时人数明细",libraryBarSql,"2");
             reMap.put("DigitalReadingRoom", re);
         }catch(Exception e){
             e.printStackTrace();
         }
         
         try{
-            String re = getBar("自习室近两小时人数明细",libraryBarSql,"2");
+            String re = getBar("自习室近一小时人数明细",libraryBarSql,"2");
             reMap.put("SelfStudyRoom", re);
         }catch(Exception e){
             e.printStackTrace();

@@ -25,9 +25,4 @@ public interface TheatreService{
      */
     Map<String, Object> Pie();
     
-    /**
-     * 查找所有剧场秀信息
-     * @return
-     */
-    List<TheatreShow> findTheatreShowDetails();
 }

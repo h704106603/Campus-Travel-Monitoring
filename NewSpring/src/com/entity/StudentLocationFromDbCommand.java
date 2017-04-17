@@ -7,12 +7,16 @@ package com.entity;
  */
 public class StudentLocationFromDbCommand {
 
+	//学生id
 	private String studentId;
 	 
+	//出入时间
 	private String time;
 	
+	//出入地点
 	private String place;
 	
+	//出入类型
 	private String type;
 
 	public String getStudentId() {

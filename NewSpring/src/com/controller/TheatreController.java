@@ -47,17 +47,6 @@ public class TheatreController{
         return new ModelAndView("eachTheatre", "message", json.toString());
     }
     
-    
-    //得到近期剧场秀的活动
-    @RequestMapping(value = "/TheatreShowDetails",method= RequestMethod.GET) 
-    @ResponseBody 
-    public Map<String, Object> TheatreShowDetails(){
-        Map<String, Object> result=new HashMap<String, Object>();
-        List<TheatreShow> theatreShowList =theatreService.findTheatreShowDetails();
-        result.put("theatreShowList",theatreShowList);  
-        return result;  
-    }
-    
     //点赞
     @Autowired
 	private TheatreShowDetailsService theatreShowDetailsService;
