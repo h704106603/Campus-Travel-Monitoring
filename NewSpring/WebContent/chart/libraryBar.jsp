@@ -23,9 +23,9 @@
 
 </body>
 	<script type="text/javascript">
-	  var timer = window.setInterval(showSecondes,6000000);
+	  var timer = window.setInterval(showSecondes,30000);
 		function showSecondes() {
-			location.href = "<%=request.getContextPath()%>/BathroomBar";
+			location.href = "<%=request.getContextPath()%>/LibraryBar";
 		}
 		
 	var chart1 = new FusionCharts("<%=request.getContextPath()%>/chart/common/FusionCharts/MSStackedColumn2DLineDY.swf",

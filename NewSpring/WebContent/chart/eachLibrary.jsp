@@ -28,6 +28,11 @@
 	
 </body>
 <script type="text/javascript">
+	var timer = window.setInterval(showSecondes,30000);
+	function showSecondes() {
+		location.href = "<%=request.getContextPath()%>/EachLibraryPie";
+	}
+
 	var chart1 = new FusionCharts("<%=request.getContextPath()%>/chart/common/FusionCharts/Pie3D.swf",
 		"chart1", "100%", "100%", "0", "0");
 	var chart2 = new FusionCharts("<%=request.getContextPath()%>/chart/common/FusionCharts/Pie3D.swf",

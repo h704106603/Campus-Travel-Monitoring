@@ -40,7 +40,7 @@
 	    	option.chart.resize();
 	    });
 	}
-    var timer = window.setInterval(showSecondes,60000);
+    var timer = window.setInterval(showSecondes,30000);
 	function showSecondes() {
 		location.href = "<%=request.getContextPath()%>/EchartsClassroomBar";
 	}

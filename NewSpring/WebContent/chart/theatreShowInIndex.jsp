@@ -58,7 +58,6 @@
  	<script>
 	 	$("#theatreShow").on('click', '#thumbs', function(){ 
 	 		var id = $(this).attr("value");
-	 		alert(id);
 			location.href = "<%=request.getContextPath()%>/TheatreThumbs?id="+id+'';
 			
 		});

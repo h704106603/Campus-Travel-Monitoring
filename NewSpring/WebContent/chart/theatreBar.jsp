@@ -23,7 +23,7 @@
 
 </body>
 	<script type="text/javascript">
-	  var timer = window.setInterval(showSecondes,6000000);
+	  var timer = window.setInterval(showSecondes,30000);
 		function showSecondes() {
 			location.href = "<%=request.getContextPath()%>/TheatreBar";
 		}

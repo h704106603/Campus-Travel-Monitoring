@@ -55,7 +55,6 @@
  	<script>
 	 	$("#association").on('click', '#thumbs', function(){ 
 	 		var id = $(this).attr("value");
-	 		alert(id);
 			location.href = "<%=request.getContextPath()%>/AssociationThumbs?id="+id+'';
 			
 		});
