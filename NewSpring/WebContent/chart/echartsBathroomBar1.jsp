@@ -27,7 +27,7 @@
 	}
     var timer = window.setInterval(showSecondes,120000);
 	function showSecondes() {
-		location.href = "<%=request.getContextPath()%>/chart/newEchartsTestAjax.jsp";
+		location.href = "<%=request.getContextPath()%>/chart/echartsBathroomBar1.jsp";
 	}
     require.config({
         paths:{ 

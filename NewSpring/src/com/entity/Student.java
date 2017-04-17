@@ -16,6 +16,17 @@ public class Student {
 		this.password = password;
 	}
 	
+	public Student() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Student(String id, String name, String grade) {
+
+		this.id = id;
+		this.name = name;
+		this.grade = grade;
+	}
+
 	public String getId() {
 		return id;
 	}

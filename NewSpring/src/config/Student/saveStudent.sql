@@ -1,0 +1,1 @@
+insert into Student (ID,NAME,GRADE,PASSWORD)values('{id}','{name}','{grade}','{password}')

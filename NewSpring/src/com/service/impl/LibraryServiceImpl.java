@@ -35,13 +35,13 @@ public class LibraryServiceImpl implements LibraryService{
     @javax.annotation.Resource(name="LocalOracleDao")
     private com.dao.LocalOracleDao LocalOracleDao;
     
-    @Value("classpath:config/Bathroom/allLibrary.sql")
+    @Value("classpath:config/Library/allLibrary.sql")
     private Resource allLibrarySql;
     
-    @Value("classpath:config/Bathroom/eachLibrary.sql")
+    @Value("classpath:config/Library/eachLibrary.sql")
     private Resource eachLibrarySql;
     
-    @Value("classpath:config/Bathroom/libraryBar.sql")
+    @Value("classpath:config/Library/libraryBar.sql")
     private Resource libraryBarSql;
     
     public Map<String, Object> Bar() {
@@ -236,7 +236,7 @@ public class LibraryServiceImpl implements LibraryService{
             for (int i =0;i<dataList.size();i++) {
                 Object[] data = dataList.get(i);
                 String name = String.valueOf(data[0]==null?"":data[0]);
-                name = "图书馆当前人数分布情况";
+                name = name + "当前人数分布情况";
                 String value = String.valueOf(data[1]==null?"":data[1]);
                 Set seet =  new Set();
                 seet.setLabel(name);
@@ -246,7 +246,7 @@ public class LibraryServiceImpl implements LibraryService{
         }else{
             Set seet =  new Set();
             seet.setLabel("无数据");
-            seet.setValue("1");
+            seet.setValue("10");
             set.add(seet);
         }
         chart.setSet(set);
@@ -276,72 +276,46 @@ public class LibraryServiceImpl implements LibraryService{
         String max = new String();
         if(caption.equals("一层阅览室当前人数分布情况")){
             id = "1";
-            max = "80";
+            max = "100";
             
         }
         else if(caption.equals("电子阅览室当前人数分布情况")){
             id = "2";
-            max = "60";
+            max = "80";
         }
         else if(caption.equals("自习室当前人数分布情况")){
             id = "3";
-            max = "60";
+            max = "80";
         }
         
-//        List<Object[]>  dataList = new ArrayList<Object[]>();
-//        try {
-//            String sql = ResourceUtils.getStringFromResource(Rsql);
-//            sql = sql.replaceAll("\\{id\\}", id);
-//            sql = sql.replaceAll("\\{max\\}", max);
-//            dataList = this.LocalOracleDao.getResultForSql(sql);
-//        } catch (Exception e) {
-//            chart.setBgColor("668800");
-//            e.printStackTrace();
-//        }
-//        
-//        LinkedList<Set> set = new LinkedList<Set>();
-//        if(dataList!=null && dataList.size()>0){
-//            for (int i =0;i<dataList.size();i++) {
-//                Object[] data = dataList.get(i);
-//                String name = String.valueOf(data[0]==null?"":data[0]);
-//                String value = String.valueOf(data[1]==null?"":data[1]);
-//                Set seet =  new Set();
-//                seet.setLabel(name);
-//                seet.setValue(value);
-//                set.add(seet);
-//            }
-//        }else{
-//            Set seet =  new Set();
-//            seet.setLabel("无数据");
-//            seet.setValue("1");
-//            set.add(seet);
-//        }
-        
-        
-        LinkedList<Set> set = new LinkedList<Set>();
-        if(true){
-            
-                String name1 = "空位";
-                String value1 = "200";
-                Set seet1 =  new Set();
-                seet1.setLabel(name1);
-                seet1.setValue(value1);
-                set.add(seet1);
-            
-                
-                String name2 = "当前人数";
-                String value2 = "300";
-                Set seet2 =  new Set();
-                seet2.setLabel(name2);
-                seet2.setValue(value2);
-                set.add(seet2);
-        }else{
-            Set seet =  new Set();
-            seet.setLabel("无数据");
-            seet.setValue("1");
-            set.add(seet);
-        }
-        
+        List<Object[]>  dataList = new ArrayList<Object[]>();
+		try {
+			String sql = ResourceUtils.getStringFromResource(Rsql);
+			sql = sql.replaceAll("\\{id\\}", id);
+			sql = sql.replaceAll("\\{max\\}", max);
+			dataList = this.LocalOracleDao.getResultForSql(sql);
+		} catch (Exception e) {
+			chart.setBgColor("668800");
+			e.printStackTrace();
+		}
+		
+		LinkedList<Set> set = new LinkedList<Set>();
+		if(dataList!=null && dataList.size()>0){
+			for (int i =0;i<dataList.size();i++) {
+				Object[] data = dataList.get(i);
+				String name = String.valueOf(data[0]==null?"":data[0]);
+				String value = String.valueOf(data[1]==null?"":data[1]);
+				Set seet =  new Set();
+				seet.setLabel(name);
+				seet.setValue(value);
+				set.add(seet);
+			}
+		}else{
+			Set seet =  new Set();
+			seet.setLabel("无数据");
+			seet.setValue("1");
+			set.add(seet);
+		}
         
         chart.setSet(set);
         return chart.toXML();

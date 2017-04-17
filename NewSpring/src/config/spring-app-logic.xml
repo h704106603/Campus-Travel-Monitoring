@@ -62,9 +62,6 @@
 	<bean id="canteenService" class="com.service.impl.CanteenServiceImpl">
 	</bean>
 	
-	<bean id="theatreService" class="com.service.impl.TheatreServiceImpl">
-	</bean>
-	
 	<bean id="GetAllLocationScoreService" class="com.service.impl.GetAllLocationScoreServiceImpl">
 	</bean>
 	

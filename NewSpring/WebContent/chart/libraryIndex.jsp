@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-<title>浴室情况</title>
+<title>图书馆情况</title>
 <script type="text/javascript" src="<%=request.getContextPath()%>/chart/common/echarts/esl.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/chart/common/js/jquery-1.3.2.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/chart/ajaxbridge/js/FABridge.js"></script>
@@ -43,7 +43,7 @@
 						<ul>
 							<li><a href="<%=request.getContextPath()%>/Index" class="active">首页</a></li>
 							<li><a href="<%=request.getContextPath()%>/findFriend?username=<%=(String) session.getAttribute("username")%>">好友情况</a></li>
-							<li><a href="about.html">图书馆</a></li>
+							<li><a href="<%=request.getContextPath()%>/LibraryIndex">图书馆</a></li>
 							<li><a href="<%=request.getContextPath()%>/BathroomIndex">公共浴室</a></li>
 							<li><a href="about.html">食堂</a></li>
 							<li><a href="tours.html">剧场</a></li>
@@ -56,21 +56,16 @@
   		</div>	  	
   	</div>
   	
- 	<div id="ehartsBathroomBar1" style=" width:50%; height:38%;position:absolute; top: 20%; left:0%; ">		
- 		<div id=ehartsBathroomBar1 style="width:100%; height:100%; position:absolute; left:0%; top:0%;border: 1px solid #FCDD44  ">
- 			<iframe  src="<%=request.getContextPath()%>/chart/echartsBathroomBar1.jsp" style="width:100%; height:100%;border-width: 0px;"></iframe>
+ 	<div id="allLibraryPie" style=" width:100%; height:100%;position:absolute; top: 0%; left:0%; ">
+ 		<div id="allLibraryPie" style="width:100%; height:100%; position:absolute; left:0%; top:20%;border: 0px solid #FCDD44  ">
+ 			<iframe  src="<%=request.getContextPath()%>/AllLibraryPie" style="width:100%; height:100%;border-width: 0px;"></iframe>
  		</div>
  	</div>
- 	<div id="allBathroomPie" style=" width:50%; height:38%;position:absolute; top: 20%; left:50%; ">
- 		<div id="allBathroomPie" style="width:100%; height:100%; position:absolute; left:0%; top:0%;border: 0px solid #FCDD44  ">
- 			<iframe  src="<%=request.getContextPath()%>/AllBathroomPie" style="width:100%; height:100%;border-width: 0px;"></iframe>
- 		</div>
+ 	<div id="eachLibraryPie" style=" width:100%; height:100%;position:absolute; top: 120%; left:0%; ">			
+ 			<iframe  src="<%=request.getContextPath()%>/EachLibraryPie" style="width:100%; height:100%;border-width: 0px;"></iframe>
  	</div>
- 	<div id="eachBathroomPie" style=" width:100%; height:40%;position:absolute; top: 58%; left:0%; ">			
- 			<iframe  src="<%=request.getContextPath()%>/EachBathroomPie" style="width:100%; height:100%;border-width: 0px;"></iframe>
- 	</div>
- 	<div id="bathroomBar" style=" width:100%; height:100%;position:absolute; top: 100%; left:0%; ">			
- 			<iframe  src="<%=request.getContextPath()%>/BathroomBar" style="width:100%; height:100%;border-width: 0px;"></iframe>
+ 	<div id="libraryBar" style=" width:100%; height:100%;position:absolute; top: 220%; left:0%; ">			
+ 			<iframe  src="<%=request.getContextPath()%>/LibraryBar" style="width:100%; height:100%;border-width: 0px;"></iframe>
  	</div>
  	
 	

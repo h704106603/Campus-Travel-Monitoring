@@ -36,11 +36,11 @@
 			"chartId3", "100%", "100%", "0", "0");
 	
 	var data = ${message};
-	chart1.setDataXML(data.130Theatre);
+	chart1.setDataXML(data.Theatre130);
 	chart1.render("chartdiv1");
-	chart2.setDataXML(data.146Theatre);
+	chart2.setDataXML(data.Theatre146);
 	chart2.render("chartdiv2");
-	chart3.setDataXML(data.346Theatre);
+	chart3.setDataXML(data.Theatre346);
 	chart3.render("chartdiv3");
 
 	</script>

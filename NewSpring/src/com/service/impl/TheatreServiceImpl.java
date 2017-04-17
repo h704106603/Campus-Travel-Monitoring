@@ -81,21 +81,21 @@ public class TheatreServiceImpl implements TheatreService{
         
         try{
             String re = getBar("130近两小时人数明细",theatreBarSql,"1");
-            reMap.put("130Theatre", re);
+            reMap.put("Theatre130", re);
         }catch(Exception e){
             e.printStackTrace();
         }
         
         try{
             String re = getBar("146近两小时人数明细",theatreBarSql,"2");
-            reMap.put("146Theatre", re);
+            reMap.put("Theatre146", re);
         }catch(Exception e){
             e.printStackTrace();
         }
         
         try{
             String re = getBar("346近两小时人数明细",theatreBarSql,"2");
-            reMap.put("346Theatre", re);
+            reMap.put("Theatre346", re);
         }catch(Exception e){
             e.printStackTrace();
         }

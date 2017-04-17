@@ -18,7 +18,7 @@ public class IndexController {
 
 	/**
 	 * 转到
-	 * @return浴室首页
+	 * @return浴室情况首页
 	 */
 	@RequestMapping("/BathroomIndex")
   	public ModelAndView BathroomIndex(){
@@ -28,6 +28,34 @@ public class IndexController {
 	@RequestMapping("/Index")
   	public ModelAndView Index(){
 		return new ModelAndView("success");
+	}
+	
+	/**
+	 * 转到
+	 * @return图书馆情况首页
+	 */
+	@RequestMapping("/LibraryIndex")
+  	public ModelAndView LibraryIndex(){
+		return new ModelAndView("libraryIndex");
+	}
+	
+	/**
+	 * 转到
+	 * @return食堂情况首页
+	 */
+	@RequestMapping("/CanteenIndex")
+  	public ModelAndView CanteenIndex(){
+		return new ModelAndView("canteenIndex");
+	}
+	
+	
+	/**
+	 * 转到
+	 * @return食堂情况首页
+	 */
+	@RequestMapping("/TheatreIndex")
+  	public ModelAndView TheatreIndex(){
+		return new ModelAndView("theatreIndex");
 	}
 	
 	

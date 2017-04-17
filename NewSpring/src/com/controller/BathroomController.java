@@ -62,7 +62,6 @@ public class BathroomController {
   	@RequestMapping(value = "/EchartsBathroomBar1",method= RequestMethod.GET) 
   	@ResponseBody  
     public Map<String, Object> EchartsBathroomBar1(){  
-    	System.out.println("执行了EchartsBathroomBar方法");
         Map<String, Object> result=new HashMap<String, Object>();
         String message = echartsBathroomService.BathroomBar("1"); 
         result.put("data",message);  
@@ -73,7 +72,6 @@ public class BathroomController {
   	@RequestMapping(value = "/EchartsBathroomBar2",method= RequestMethod.GET) 
   	@ResponseBody  
     public Map<String, Object> EchartsBathroomBar2(){  
-    	System.out.println("执行了EchartsBathroomBar方法");
         Map<String, Object> result=new HashMap<String, Object>();
         String message = echartsBathroomService.BathroomBar("2"); 
         result.put("data",message);  

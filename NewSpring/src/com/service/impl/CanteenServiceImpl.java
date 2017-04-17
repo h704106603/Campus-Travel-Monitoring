@@ -234,7 +234,7 @@ public class CanteenServiceImpl implements CanteenService{
             for (int i =0;i<dataList.size();i++) {
                 Object[] data = dataList.get(i);
                 String name = String.valueOf(data[0]==null?"":data[0]);
-                name = "第"+name+"食堂";
+                name = name+"当前人数";
                 String value = String.valueOf(data[1]==null?"":data[1]);
                 Set seet =  new Set();
                 seet.setLabel(name);

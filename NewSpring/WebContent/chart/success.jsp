@@ -39,7 +39,7 @@
 						<ul>
 							<li><a href="<%=request.getContextPath()%>/Index" class="active">首页</a></li>
 							<li><a href="<%=request.getContextPath()%>/findFriend?studentId=<%=(String) session.getAttribute("studentId")%>">好友情况</a></li>
-							<li><a href="about.html">图书馆</a></li>
+							<li><a href="<%=request.getContextPath()%>/LibraryIndex">图书馆</a></li>
 							<li><a href="<%=request.getContextPath()%>/BathroomIndex">公共浴室</a></li>
 							<li><a href="about.html">食堂</a></li>
 							<li><a href="tours.html">剧场</a></li>
