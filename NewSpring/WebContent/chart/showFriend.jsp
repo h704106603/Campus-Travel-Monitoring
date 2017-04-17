@@ -87,10 +87,16 @@ float:left;width:180px;height:190px;margin-left: 50px;cursor: move;background:ur
 			
 		</div>
 	</section>
+	
 	<footer class="tm-black-bg">
 		<div class="container">
 			<div class="row">
-				<p class="tm-copyright-text">Copyright &copy; 2016.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+				<p class="tm-copyright-text">
+				智慧校园出行——hang&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				<a target="_blank" href="https://github.com/h704106603/hang">
+				本网站github项目地址
+				</a>
+				</p>
 			</div>
 		</div>		
 	</footer>
