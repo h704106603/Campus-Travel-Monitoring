@@ -16,15 +16,15 @@ public class GetAllLocationScoreServiceImpl implements GetAllLocationScoreServic
     @javax.annotation.Resource(name="LocalOracleDao")
     private com.dao.LocalOracleDao LocalOracleDao;
     
-    @Value("classpath:config/Bathroom/libraryScore.sql")
+    @Value("classpath:config/PlaceScore/libraryScore.sql")
     private Resource LibraryScoreSql;
-    @Value("classpath:config/Bathroom/bathroomScore.sql")
+    @Value("classpath:config/PlaceScore/bathroomScore.sql")
     private Resource BathroomScoreSql;
-    @Value("classpath:config/Bathroom/canteenScore.sql")
+    @Value("classpath:config/PlaceScore/canteenScore.sql")
     private Resource CanteenScoreSql;
-    @Value("classpath:config/Bathroom/theatreScore.sql")
+    @Value("classpath:config/PlaceScore/theatreScore.sql")
     private Resource TheatreScoreSql;
-    @Value("classpath:config/Bathroom/classroomScore.sql")
+    @Value("classpath:config/PlaceScore/classroomScore.sql")
     private Resource ClassroomScoreSql;
     
     
@@ -46,23 +46,26 @@ public class GetAllLocationScoreServiceImpl implements GetAllLocationScoreServic
     
     public String GetAllLocationScore(Resource Rsql){
         
-//        try {
-//            String sql = ResourceUtils.getStringFromResource(Rsql);
-//            //sql = sql.replaceAll("\\{id\\}", id);
-//            List<Object[]> list = LocalOracleDao.getResultForSql(sql);
-//            if(list!=null && list.size()>0){
-//                for (Object[] objData : list) {
-//                    String name = objData[0]==null ? "" : String.valueOf(objData[0]);
-//                    String value = objData[1]==null ? "0" : String.valueOf(objData[1]); //浠婃棩
-//                    return value;
-//                }
-//            }
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-    	return "80";
-        //return null;
+    	String value = new String();
+        try {
+            String sql = ResourceUtils.getStringFromResource(Rsql);
+            List<Object[]> list = LocalOracleDao.getResultForSql(sql);
+            if(list!=null && list.size()>0){
+                for (Object[] objData : list) {
+                    String name = objData[0]==null ? "" : String.valueOf(objData[0]);
+                    value = objData[1]==null ? "0" : String.valueOf(objData[1]); //浠婃棩
+                   
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+       //做截取，防止小数点
+       if(value.contains(".")){
+    	   value = value.substring(0, value.indexOf("."));
+       }
+       return value;
     }
 
 }

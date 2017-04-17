@@ -13,8 +13,13 @@ public class BathroomServiceTest extends BaseTransactionTestCase{
   	private BathroomService bathroomService;
 	
 	@Test
-	public void BarTest() {
+	public void BathroomServiceBarTest() {
 		System.out.println(("bathroomService.Bar().size()"+ bathroomService.Bar().size()));
+	}
+	
+	@Test
+	public void BathroomServicePieTest() {
+		System.out.println(("bathroomService.Pie().size()"+ bathroomService.Pie().size()));
 	}
 
 }
