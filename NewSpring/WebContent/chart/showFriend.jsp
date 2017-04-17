@@ -52,7 +52,10 @@ float:left;width:180px;height:190px;margin-left: 50px;cursor: move;background:ur
   		<div class="container">
   			<div class="row">
   				<div class="col-lg-4 col-md-2 col-sm-3 tm-site-name-container">
-  					<a href="#" class="tm-site-name">智慧校园出行</a>	
+  					<a href="#" class="tm-site-name">智慧校园出行</a>
+  					
+  					<p style="color: #FCDD44">欢迎你，<%=(String) session.getAttribute("name")%><a href="LoginOut" style="color: #FCDD44">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp注销</a>	</p>
+  					
   				</div>
 	  			<div class="col-lg-8 col-md-10 col-sm-9">
 	  				<div class="mobile-menu-icon">
@@ -67,11 +70,12 @@ float:left;width:180px;height:190px;margin-left: 50px;cursor: move;background:ur
 							<li><a href="<%=request.getContextPath()%>/CanteenIndex">食堂</a></li>
 							<li><a href="<%=request.getContextPath()%>/TheatreIndex">剧场</a></li>
 							<li><a href="<%=request.getContextPath()%>/ClassroomIndex">教室</a></li>
+							
 						</ul>
 					</nav>		
 	  			</div>				
   			</div>
-  		</div>	  	
+  		</div>	    	
   	</div>
 
 	<!-- white bg -->

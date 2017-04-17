@@ -33,7 +33,10 @@
   		<div class="container">
   			<div class="row">
   				<div class="col-lg-4 col-md-2 col-sm-3 tm-site-name-container">
-  					<a href="#" class="tm-site-name">智慧校园出行</a>	
+  					<a href="#" class="tm-site-name">智慧校园出行</a>
+  					
+  					<p style="color: #FCDD44">欢迎你，<%=(String) session.getAttribute("name")%><a href="LoginOut" style="color: #FCDD44">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp注销</a>	</p>
+  					
   				</div>
 	  			<div class="col-lg-8 col-md-10 col-sm-9">
 	  				<div class="mobile-menu-icon">
@@ -61,7 +64,7 @@
  			<iframe  src="<%=request.getContextPath()%>/AllLibraryPie" style="width:100%; height:100%;border-width: 0px;"></iframe>
  		</div>
  	</div>
- 	<div id="bathroom" style=" width:100%; height:50%;position:absolute; top: 70%; left:50%; ">
+ 	<div id="bathroom" style=" width:100%; height:50%;position:absolute; top: 70%; left:0%; ">
  		<div id="allBathroomPie" style="width:100%; height:100%; position:absolute; left:0%; top:0%;border: 0px solid #FCDD44  ">
  			<iframe  src="<%=request.getContextPath()%>/AllBathroomPie" style="width:100%; height:100%;border-width: 0px;"></iframe>
  		</div>

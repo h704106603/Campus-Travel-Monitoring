@@ -28,8 +28,10 @@
   		<div class="container">
   			<div class="row">
   				<div class="col-lg-4 col-md-2 col-sm-3 tm-site-name-container">
-  					<a href="#" class="tm-site-name">智慧校园出行</a>	
-  					<p style="color: #FCDD44">欢迎你，<%=(String) session.getAttribute("name")%></p>
+  					<a href="#" class="tm-site-name">智慧校园出行</a>
+  					
+  					<p style="color: #FCDD44">欢迎你，<%=(String) session.getAttribute("name")%><a href="LoginOut" style="color: #FCDD44">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp注销</a>	</p>
+  					
   				</div>
 	  			<div class="col-lg-8 col-md-10 col-sm-9">
 	  				<div class="mobile-menu-icon">
