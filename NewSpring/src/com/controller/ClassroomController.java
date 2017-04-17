@@ -47,7 +47,6 @@ public class ClassroomController {
 	@RequestMapping(value = "/EchartsClassroomById",method= RequestMethod.GET) 
     @ResponseBody  
     public Map<String, Object> EchartsClassroomById(String classroom){
-		System.out.println("classroom"+classroom);
         Map<String, Object> result=new HashMap<String, Object>();
         String message = echartsClassroomService.ClassroomBar(classroom); 
         result.put("data",message);  

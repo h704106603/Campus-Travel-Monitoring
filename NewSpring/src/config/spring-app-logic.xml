@@ -80,6 +80,11 @@
 	<bean id="classroomService" class="com.service.impl.ClassroomServiceImpl">
 	</bean>
 	
+	<bean id="theatreShowDetailsService" class="com.service.impl.TheatreShowDetailsServiceImpl">
+	</bean>
+	
+	
+	
 	
 	
 	

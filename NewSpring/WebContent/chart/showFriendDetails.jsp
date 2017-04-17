@@ -1,31 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-<title>浴室情况</title>
+<title>好友明细情况</title>
 <script type="text/javascript" src="<%=request.getContextPath()%>/chart/common/echarts/esl.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/chart/common/js/jquery-1.3.2.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/chart/ajaxbridge/js/FABridge.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/chart/ajaxbridge/js/FDMSLib.js"></script>
 </head>
-<body style="background-color: #000000">
+<body style="background-color: #ffffff">
 	 <link href="<%=request.getContextPath()%>/chart/common/css/font-awesome.min.css" rel="stylesheet">
   <link href="<%=request.getContextPath()%>/chart/common/css/bootstrap.min.css" rel="stylesheet">
   <link href="<%=request.getContextPath()%>/chart/common/css/bootstrap-datetimepicker.min.css" rel="stylesheet">  
   <link href="<%=request.getContextPath()%>/chart/common/css/flexslider.css" rel="stylesheet">
   <link href="<%=request.getContextPath()%>/chart/common/css/templatemo-style.css" rel="stylesheet">
-
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
+	
+	<style>
+	table tr:first-child{background:#0066CC; color:#fff;font-weight:bold;} /*第一行标题蓝色背景*/
+	table{border-top:1pt solid #C1DAD7;border-left:1pt solid #C1DAD7;margin: 0 auto;width: 1200px;height: 600px;} 
+	td{ padding:5px 10px; text-align:center;border-right:1pt solid #C1DAD7;border-bottom:1pt solid #C1DAD7;}
+	tr:nth-of-type(odd){ background:#c6f9f7} /* odd 标识奇数行，even标识偶数行 */
+	tr:hover{ background: #E0F0F0;} /*鼠标悬停后表格背景颜色*/
+</style>
   </head>
   <body class="tm-gray-bg">
   	<!-- Header -->
@@ -56,23 +57,26 @@
   		</div>	  	
   	</div>
   	
- 	<div id="ehartsBathroomBar1" style=" width:50%; height:38%;position:absolute; top: 20%; left:0%; ">		
- 		<div id=ehartsBathroomBar1 style="width:100%; height:100%; position:absolute; left:0%; top:0%;border: 1px solid #FCDD44  ">
- 			<iframe  src="<%=request.getContextPath()%>/chart/echartsBathroomBar1.jsp" style="width:100%; height:100%;border-width: 0px;"></iframe>
- 		</div>
- 	</div>
- 	<div id="allBathroomPie" style=" width:50%; height:38%;position:absolute; top: 20%; left:50%; ">
- 		<div id="allBathroomPie" style="width:100%; height:100%; position:absolute; left:0%; top:0%;border: 0px solid #FCDD44  ">
- 			<iframe  src="<%=request.getContextPath()%>/AllBathroomPie" style="width:100%; height:100%;border-width: 0px;"></iframe>
- 		</div>
- 	</div>
- 	<div id="eachBathroomPie" style=" width:100%; height:40%;position:absolute; top: 58%; left:0%; ">			
- 			<iframe  src="<%=request.getContextPath()%>/EachBathroomPie" style="width:100%; height:100%;border-width: 0px;"></iframe>
- 	</div>
- 	<div id="bathroomBar" style=" width:100%; height:100%;position:absolute; top: 100%; left:0%; ">			
- 			<iframe  src="<%=request.getContextPath()%>/BathroomBar" style="width:100%; height:100%;border-width: 0px;"></iframe>
- 	</div>
- 	
+  	
+  	<div id="friendDetails">
+  	   <table id="table"
+		    <tr>
+	            <th>姓名</th>
+	            <th>班级</th>
+	            <th>时间</th>
+	            <th>出入地</th>
+	        </tr>
+	        <c:forEach var="LocationDetails" items="${locationDetailsList}"> 
+			<tr>
+	            <th data-field="name">${LocationDetails.name}</th>
+	            <th data-field="grade">${LocationDetails.grade}</th>
+	            <th data-field="time">${LocationDetails.time}</th>
+	            <th data-field="details">${LocationDetails.details}</th>
+	        </tr>
+			</c:forEach>
+    	</table>
+	 	
+     </div>
 	
 </body>
 </html>

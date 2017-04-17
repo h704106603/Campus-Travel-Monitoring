@@ -61,13 +61,12 @@ float:left;width:180px;height:190px;margin-left: 50px;cursor: move;background:ur
 	  				<nav class="tm-nav">
 						<ul>
 							<li><a href="<%=request.getContextPath()%>/Index" class="active">首页</a></li>
-							<li><a href="<%=request.getContextPath()%>/findFriend?username=<%=(String) session.getAttribute("username")%>">好友情况</a></li>
-							<li><a href="about.html">图书馆</a></li>
+							<li><a href="<%=request.getContextPath()%>/findFriend?studentId=<%=(String) session.getAttribute("studentId")%>">好友情况</a></li>
+							<li><a href="<%=request.getContextPath()%>/LibraryIndex">图书馆</a></li>
 							<li><a href="<%=request.getContextPath()%>/BathroomIndex">公共浴室</a></li>
-							<li><a href="about.html">食堂</a></li>
-							<li><a href="tours.html">剧场</a></li>
-							<li><a href="tours.html">教室</a></li>
-							<li><p></p></li>
+							<li><a href="<%=request.getContextPath()%>/CanteenIndex">食堂</a></li>
+							<li><a href="<%=request.getContextPath()%>/TheatreIndex">剧场</a></li>
+							<li><a href="<%=request.getContextPath()%>/ClassroomIndex">教室</a></li>
 						</ul>
 					</nav>		
 	  			</div>				
@@ -114,7 +113,7 @@ float:left;width:180px;height:190px;margin-left: 50px;cursor: move;background:ur
 	 			//alert("数量:"+data.length);
 	 			
 	 			$.each(studentLocation,function(k,v){
-	 				parentDom.append("<div id='person'><div id='bar' class='bar' style='display: block' >"+v.name+"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"+v.grade+"<br></div><div id='tooltip' class='tooltip' style='display: none' >"+v.locationMap+"</div>");
+	 				parentDom.append("<div id='person'><div id='bar' class='bar' style='display: block' value='"+v.id+"'>"+v.name+"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"+v.grade+"<br></div><div id='tooltip' class='tooltip' style='display: none' >"+v.locationMap+"</div>");
 	 				//$("#app").append(v.id+" "+v.name+" "+v.grade+"<br>");
 	 			});
 	 		});
@@ -132,6 +131,13 @@ float:left;width:180px;height:190px;margin-left: 50px;cursor: move;background:ur
 		    //alert( $(this).text() );  
 		    return false;  
 		}); 
+		
+		$("#app").on('click', '#person', function(){ 
+			var friendId =$(this).find("#bar").attr("value");
+			
+			var studentId = parseInt(friendId);
+			location.href = "<%=request.getContextPath()%>/ShowFriendDetails?studentId="+friendId+"";
+		});
 	</script>
  </body>
  </html>

@@ -31,17 +31,17 @@ public class LoginController {
   		
   		
   		//为了调试其他功能，可以跳过数据库验证
-//  		if(loginService.isAdmin(studentId, password)){
-//  			Student student = loginService.getStudentById(studentId);
-//  		    session.setAttribute("name", student.getName());
-//  		    session.setAttribute("studentId", studentId);
-//  			return new ModelAndView("success");
-//  		}
-  	    if(true){
-  	      session.setAttribute("name", "杭晓言");
-  	      session.setAttribute("studentId", studentId);
-  	      return new ModelAndView("success");
-  	    }
+  		if(loginService.isAdmin(studentId, password)){
+  			Student student = loginService.getStudentById(studentId);
+  		    session.setAttribute("name", student.getName());
+  		    session.setAttribute("studentId", studentId);
+  			return new ModelAndView("success");
+  		}
+//  	    if(true){
+//  	      session.setAttribute("name", "杭晓言");
+//  	      session.setAttribute("studentId", studentId);
+//  	      return new ModelAndView("success");
+//  	    }
   		else{
   			String str = new String("登录失败");
   			return new ModelAndView("login","wrongmessage",str);

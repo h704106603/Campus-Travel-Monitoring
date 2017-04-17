@@ -26,7 +26,7 @@
 <script type="text/javascript">
 	var timer = window.setInterval(showSecondes,60000);
 	function showSecondes() {
-		location.href = "<%=request.getContextPath()%>/BathroomBar";
+		location.href = "<%=request.getContextPath()%>/AllBathroomPie";
 	}
 	var chart1 = new FusionCharts("<%=request.getContextPath()%>/chart/common/FusionCharts/Pie3D.swf",
 		"chart", "100%", "100%", "0", "0");

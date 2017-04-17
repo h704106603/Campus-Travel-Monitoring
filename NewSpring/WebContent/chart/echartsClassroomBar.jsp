@@ -9,6 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+<meta http-equiv="nocache" content="no-cache">
 <title>教室明细情况（刷新周期2分钟）</title>
 
 <script  Charset="UTF-8" type="text/javascript" src="<%=request.getContextPath()%>/chart/common/echarts/esl.js"></script>
@@ -22,9 +23,10 @@
 			<option value="${ClassroomId}">${ClassroomId}</option>
 		</c:forEach>
 	</select>
-	<button name="classroomIdSubmit" id="classroomIdSubmit" value="刷新"  style="height:8%; position:absolute; width:10%;top: 0%; left:11%">
-	</button>
-	<div id="chartdiv1" style="height:90%; width:100%; position:absolute; top: 10%;  left:0px;  border:0px solid #FCDD44;">			
+	<!-- <button name="classroomIdSubmit" id="classroomIdSubmit" value="刷新" style="height:8%; position:absolute; width:10%;top: 0%; left:11%">
+	刷新
+	</button> -->
+	<div id="chartdiv1"  align="center"  style="height:90%; width:100%; position:absolute; top: 10%;  left:0px;  border:0px solid #FCDD44;">			
  	</div>
  	
     <script type="text/javascript">
@@ -68,10 +70,16 @@
             	var update = {"classroom":selectedData};
             	
             	$.getJSON("<%=request.getContextPath()%>/EchartsClassroomById",update, function(msg){
+            		
             		var data = msg.data;
             		var json = JSON.parse(data);
             		option.setOption(json);
             	});
+        	});
+        	
+        	
+        	$("button").click(function(){
+        		showSecondes();
         	});
             
             

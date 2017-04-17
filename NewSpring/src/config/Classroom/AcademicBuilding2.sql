@@ -1,4 +1,4 @@
-select '2#401'，count(t.studentid) from classroom t 
+select 401，count(t.studentid) from classroom t 
 where time < sysdate
   and time> trunc(sysdate)
   and t.academicbuilding = '2'
@@ -17,7 +17,7 @@ where time < sysdate
 
 union all
 
-select '2#402'，count(t.studentid) from classroom t 
+select 402，count(t.studentid) from classroom t 
 where time < sysdate
   and time> trunc(sysdate)
   and t.academicbuilding = '2'
@@ -36,7 +36,7 @@ where time < sysdate
 
 union all
 
-select '2#403'，count(t.studentid) from classroom t 
+select 403，count(t.studentid) from classroom t 
 where time < sysdate
   and time> trunc(sysdate)
   and t.academicbuilding = '2'
@@ -55,7 +55,7 @@ where time < sysdate
   
 union all 
 
-select '2#404'，count(t.studentid) from classroom t 
+select 404，count(t.studentid) from classroom t 
 where time < sysdate
   and time> trunc(sysdate)
   and t.academicbuilding = '2'
@@ -75,7 +75,7 @@ where time < sysdate
 union all
 
 
-select '2#405'，count(t.studentid) from classroom t 
+select 405，count(t.studentid) from classroom t 
 where time < sysdate
   and time> trunc(sysdate)
   and t.academicbuilding = '2'
@@ -95,7 +95,7 @@ where time < sysdate
 union all
 
 
-select '2#406'，count(t.studentid) from classroom t 
+select 406，count(t.studentid) from classroom t 
 where time < sysdate
   and time> trunc(sysdate)
   and t.academicbuilding = '2'
@@ -115,7 +115,7 @@ where time < sysdate
 union all
 
 
-select '2#407'，count(t.studentid) from classroom t 
+select 407，count(t.studentid) from classroom t 
 where time < sysdate
   and time> trunc(sysdate)
   and t.academicbuilding = '2'
@@ -135,7 +135,7 @@ where time < sysdate
 union all
 
 
-select '2#408'，count(t.studentid) from classroom t 
+select 408，count(t.studentid) from classroom t 
 where time < sysdate
   and time> trunc(sysdate)
   and t.academicbuilding = '2'
@@ -155,7 +155,7 @@ where time < sysdate
 union all
 
 
-select '2#409'，count(t.studentid) from classroom t 
+select 409，count(t.studentid) from classroom t 
 where time < sysdate
   and time> trunc(sysdate)
   and t.academicbuilding = '2'
@@ -175,7 +175,7 @@ where time < sysdate
 union all
 
 
-select '2#410'，count(t.studentid) from classroom t 
+select 410，count(t.studentid) from classroom t 
 where time < sysdate
   and time> trunc(sysdate)
   and t.academicbuilding = '2'
@@ -195,7 +195,7 @@ where time < sysdate
 union all
 
 
-select '2#411'，count(t.studentid) from classroom t 
+select 411，count(t.studentid) from classroom t 
 where time < sysdate
   and time> trunc(sysdate)
   and t.academicbuilding = '2'

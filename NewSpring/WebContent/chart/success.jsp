@@ -41,10 +41,10 @@
 							<li><a href="<%=request.getContextPath()%>/findFriend?studentId=<%=(String) session.getAttribute("studentId")%>">好友情况</a></li>
 							<li><a href="<%=request.getContextPath()%>/LibraryIndex">图书馆</a></li>
 							<li><a href="<%=request.getContextPath()%>/BathroomIndex">公共浴室</a></li>
-							<li><a href="about.html">食堂</a></li>
-							<li><a href="tours.html">剧场</a></li>
-							<li><a href="tours.html">教室</a></li>
-							<li><p></p></li>
+							<li><a href="<%=request.getContextPath()%>/CanteenIndex">食堂</a></li>
+							<li><a href="<%=request.getContextPath()%>/TheatreIndex">剧场</a></li>
+							<li><a href="<%=request.getContextPath()%>/ClassroomIndex">教室</a></li>
+							
 						</ul>
 					</nav>		
 	  			</div>				

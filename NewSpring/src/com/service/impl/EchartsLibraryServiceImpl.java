@@ -1,5 +1,6 @@
 package com.service.impl;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -68,7 +69,7 @@ public class EchartsLibraryServiceImpl implements EchartsLibraryService{
         markPoint.itemStyle().normal().textStyle().fontSize(8);
 
         //option.title().text("内存使用情况(刷新周期2分钟)").subtext(new SimpleDateFormat("yyyy-MM-dd HH:mm").format(new Date())).x(X.center);
-        option.title().text(caption).borderColor("#00FF00").x(X.left);
+        option.title().text(caption).borderColor("#00FF00").subtext(new SimpleDateFormat("yyyy-MM-dd HH:mm").format(new Date())).x(X.center);
         //设置时间颜色
         //option.title().subtextStyle().color("#00FF00");
         option.title().textStyle().color("#00FF00").fontSize(12);

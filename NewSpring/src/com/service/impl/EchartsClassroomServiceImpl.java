@@ -1,5 +1,6 @@
 package com.service.impl;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -42,7 +43,7 @@ public class EchartsClassroomServiceImpl implements EchartsClassroomService{
     
     public String ClassroomBar(String classroom){
         
-        return showBar("教室人数明细",classroomSql,classroom);
+        return showBar(classroom+"教室人数明细",classroomSql,classroom);
          
         
     }
@@ -53,7 +54,7 @@ public class EchartsClassroomServiceImpl implements EchartsClassroomService{
         try {
             String sql = ResourceUtils.getStringFromResource(findAllClassroomSql);
             List<Object[]> list = LocalOracleDao.getResultForSql(sql);
-            
+            ClassroomIdlist.add("请选择教室");
             if(list!=null && list.size()>0){
                 
                 for(Object[] obj:list){ 
@@ -72,6 +73,10 @@ public class EchartsClassroomServiceImpl implements EchartsClassroomService{
 
     public String showBar(String caption,Resource Rsql,String id){
         
+    	if(id.equals("请选择教室")){
+    		return null;
+    		
+    	}
         Option option = new GsonOption();
         Map<String,String> map1 = new HashMap<String,String>();
         map1.put("type", "max");
@@ -87,18 +92,17 @@ public class EchartsClassroomServiceImpl implements EchartsClassroomService{
         map3.put("name", "平均值");
         markLine.data(map3).itemStyle().normal().color("red");
         markPoint.itemStyle().normal().color("#00FF00");
-        markPoint.itemStyle().normal().textStyle().fontSize(8);
+        markPoint.itemStyle().normal().textStyle().fontSize(15);
 
-        //option.title().text("内存使用情况(刷新周期2分钟)").subtext(new SimpleDateFormat("yyyy-MM-dd HH:mm").format(new Date())).x(X.center);
-        option.title().text(caption).borderColor("#00FF00").x(X.left);
+        option.title().text(caption).borderColor("#00FF00").subtext(new SimpleDateFormat("yyyy-MM-dd HH:mm").format(new Date())).x(X.center);
         //设置时间颜色
         //option.title().subtextStyle().color("#00FF00");
-        option.title().textStyle().color("#00FF00").fontSize(12);
+        option.title().textStyle().color("#00FF00").fontSize(20);
         option.tooltip().trigger(Trigger.valueOf("axis"));
         option.calculable(true);
         //option.backgroundColor("#00FF00");
         //option.grid().x(40).y(60).x2(30).y2(25);
-        option.grid().left("0%").containLabel(true);
+        option.grid().left("30%").containLabel(true);
         option.grid().width("70%").height("46%");
         
         //设置虚线
@@ -137,12 +141,6 @@ public class EchartsClassroomServiceImpl implements EchartsClassroomService{
         dataStyl1.normal().color("#00FF00").label().show(false);
         dataStyl1.normal().labelLine().show(false);
         line2.itemStyle(dataStyl2);
-        //line.markPoint(markPoint).itemStyle(placeHolderStyle);
-        /*Bar  line1 = new Bar("昨日次数");
-        ItemStyle dataStyl2 = new ItemStyle();
-        dataStyl2.normal().color("#00ffff").label().show(false);
-        dataStyl2.normal().labelLine().show(false);
-        line1.itemStyle(dataStyl2);*/
         try {
             Date dt=new Date();
             String sql = ResourceUtils.getStringFromResource(Rsql);

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
@@ -25,54 +26,21 @@
 				</div>
 			</div>
 			<div class="row" id="theatreShow">
+			
+				<c:forEach var="TheatreShowDetails" items="${theatreShowDetailsList}"> 
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
 					<div class="tm-home-box-2">						
-						<img src="<%=request.getContextPath()%>/chart/common/img/index-03.jpg" alt="image" class="img-responsive">
-						<h3>活动一</h3>
-						<p class="tm-date">时间一</p>
+						<img src="<%=request.getContextPath()%>/chart/common/img/${TheatreShowDetails.imgSrc}" alt="image" class="img-responsive">
+						<h3>${TheatreShowDetails.name}</h3>
+						<p class="tm-date">${TheatreShowDetails.time}</p>
 						<div class="tm-home-box-2-container">
-							<a href="#" class="tm-home-box-2-link"><i class="fa fa-heart tm-home-box-2-icon border-right"></i></a>
+							<a href="#" class="tm-home-box-2-link" id="thumbs" value="${TheatreShowDetails.id}"><i class="fa fa-heart tm-home-box-2-icon border-right"></i></a>
 							<a href="#" class="tm-home-box-2-link"><span class="tm-home-box-2-description">点赞/评论</span></a>
-							<a href="#" class="tm-home-box-2-link"><i class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
+							<a href="#" class="tm-home-box-2-link"><i class="fa fa-star-o tm-home-box-2-icon border-left"><span style="font-size: 3px">${TheatreShowDetails.count}</span></i></a>
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
-					<div class="tm-home-box-2">						
-					    <img src="<%=request.getContextPath()%>/chart/common/img/index-04.jpg" alt="image" class="img-responsive">
-						<h3>活动二</h3>
-						<p class="tm-date">时间二</p>
-						<div class="tm-home-box-2-container">
-							<a href="#" class="tm-home-box-2-link"><i class="fa fa-heart tm-home-box-2-icon border-right"></i></a>
-							<a href="#" class="tm-home-box-2-link"><span class="tm-home-box-2-description">点赞/评论</span></a>
-							<a href="#" class="tm-home-box-2-link"><i class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
-					<div class="tm-home-box-2">						
-					    <img src="<%=request.getContextPath()%>/chart/common/img/index-05.jpg" alt="image" class="img-responsive">
-						<h3>活动三</h3>
-						<p class="tm-date">时间三</p>
-						<div class="tm-home-box-2-container">
-							<a href="#" class="tm-home-box-2-link"><i class="fa fa-heart tm-home-box-2-icon border-right"></i></a>
-							<a href="#" class="tm-home-box-2-link"><span class="tm-home-box-2-description">点赞/评论</span></a>
-							<a href="#" class="tm-home-box-2-link"><i class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
-					<div class="tm-home-box-2 tm-home-box-2-right">						
-					    <img src="<%=request.getContextPath()%>/chart/common/img/index-06.jpg" alt="image" class="img-responsive">
-						<h3>活动四</h3>
-						<p class="tm-date">时间四</p>
-						<div class="tm-home-box-2-container">
-							<a href="#" class="tm-home-box-2-link"><i class="fa fa-heart tm-home-box-2-icon border-right"></i></a>
-							<a href="#" class="tm-home-box-2-link"><span class="tm-home-box-2-description">点赞/评论</span></a>
-							<a href="#" class="tm-home-box-2-link"><i class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
-						</div>
-					</div>
-				</div>
+				</c:forEach>
 			</div>
 			<div class="row">
 				<div class="col-lg-12">
@@ -82,10 +50,17 @@
 		</div>
 	</body>
 	
-	<script type="text/javascript" src="<%=request.getContextPath()%>/chart/common/js/jquery-1.11.2.min.js"></script>      		<!-- jQuery -->
+	<script type="text/javascript" src="<%=request.getContextPath()%>/chart/common/js/jquery-1.7.js"></script>
   	<script type="text/javascript" src="<%=request.getContextPath()%>/chart/common/js/moment.js"></script>							<!-- moment.js -->
 	<script type="text/javascript" src="<%=request.getContextPath()%>/chart/common/js/bootstrap.min.js"></script>					<!-- bootstrap js -->
 	<script type="text/javascript" src="<%=request.getContextPath()%>/chart/common/js/bootstrap-datetimepicker.min.js"></script>	<!-- bootstrap date time picker js, http://eonasdan.github.io/bootstrap-datetimepicker/ -->
 	<script type="text/javascript" src="<%=request.getContextPath()%>/chart/common/js/jquery.flexslider-min.js"></script>
- 
+ 	<script>
+	 	$("#theatreShow").on('click', '#thumbs', function(){ 
+	 		var id = $(this).attr("value");
+	 		alert(id);
+			location.href = "<%=request.getContextPath()%>/TheatreThumbs?id="+id+'';
+			
+		});
+	</script>
  </html>

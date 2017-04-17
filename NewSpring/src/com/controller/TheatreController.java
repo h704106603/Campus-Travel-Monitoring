@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.entity.TheatreShow;
 import com.service.TheatreService;
+import com.service.TheatreShowDetailsService;
 
 import net.sf.json.JSONObject;
 
@@ -56,5 +57,16 @@ public class TheatreController{
         result.put("theatreShowList",theatreShowList);  
         return result;  
     }
+    
+    //点赞
+    @Autowired
+	private TheatreShowDetailsService theatreShowDetailsService;
+    @RequestMapping(value = "/TheatreThumbs")
+    public ModelAndView TheatreThumbs(String id){
+    	System.out.println("ModelAndView TheatreThumbs:"+id);
+    	theatreShowDetailsService.TheatreThumbs(id);
+        return new ModelAndView("redirect:/TheatreShowInIndex");
+    }
+    
     
 }

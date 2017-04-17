@@ -1,6 +1,8 @@
 package com.controller;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,8 +12,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.entity.TheatreShowDetails;
 import com.service.LoginService;
 import com.service.StudentService;
+import com.service.TheatreShowDetailsService;
 
 @Controller
 public class IndexController {
@@ -60,14 +64,32 @@ public class IndexController {
 	
 	
 	/**
+	 * 转到
+	 * @return教室情况首页
+	 */
+	@RequestMapping("/ClassroomIndex")
+  	public ModelAndView ClassroomIndex(){
+		return new ModelAndView("classroomIndex");
+	}
+	
+	@Autowired
+	private TheatreShowDetailsService theatreShowDetailsService;
+	
+	
+	/**
      * 转到首页中的剧场活动展示模块
      * @return
      */
     @RequestMapping("/TheatreShowInIndex")
-    public ModelAndView TheatreShowInIndex(){
-        return new ModelAndView("theatreShowInIndex");
+    public ModelAndView TheatreShowInIndex(Model model){
+    	
+    	List<TheatreShowDetails> theatreShowDetailsList = theatreShowDetailsService.ShowTheatreShowDetails();
+        model.addAttribute(theatreShowDetailsList);
+    	return new ModelAndView("theatreShowInIndex");
     }
   	
+    
+    
 	
   	
   	
