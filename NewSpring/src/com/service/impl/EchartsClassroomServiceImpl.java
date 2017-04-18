@@ -1,5 +1,6 @@
 package com.service.impl;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -117,10 +118,20 @@ public class EchartsClassroomServiceImpl implements EchartsClassroomService{
         dataStyl2.normal().labelLine().show(false);
         line1.itemStyle(dataStyl2);*/
         try {
-            Date dt=new Date();
-            String sql = ResourceUtils.getStringFromResource(Rsql);
-            sql = sql.replaceAll("\\{id\\}", id);
-            List<Object[]> list = LocalOracleDao.getResultForSql(sql);
+//            Date dt=new Date();
+//            String sql = ResourceUtils.getStringFromResource(Rsql);
+//            sql = sql.replaceAll("\\{id\\}", id);
+//            List<Object[]> list = LocalOracleDao.getResultForSql(sql);
+        	List<Object[]> list = new ArrayList<Object[]>();
+        	Object[] obj1 = new Object[3];
+        	obj1[0] = "12:00";
+        	obj1[1] = "100";
+        	obj1[2] = "200";
+        	for(int i=0;i<20;i++){
+        		list.add(obj1);
+        	}
+        	
+            
             if(list!=null && list.size()>0){
                 
                 for(Object[] obj:list){ 

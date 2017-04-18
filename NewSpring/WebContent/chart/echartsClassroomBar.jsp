@@ -24,9 +24,9 @@
 	    	option.chart.resize();
 	    });
 	}
-    var timer = window.setInterval(showSecondes,120000);
+    var timer = window.setInterval(showSecondes,60000);
 	function showSecondes() {
-		location.href = "<%=request.getContextPath()%>/chart/echartsBathroomBar1.jsp";
+		location.href = "<%=request.getContextPath()%>/EchartsClassroomBar";
 	}
     require.config({
         paths:{ 
@@ -44,9 +44,9 @@
             // --- 地图 ---
         	var option = ec.init(document.getElementById('chartdiv1'));
         	      
-        	var update = {"classroom":"${classroom}"};
+        	var update = {"classroom":"10"};
         	
-        	$.getJSON("<%=request.getContextPath()%>/EchartsClassroom",update, function(msg){
+        	$.getJSON("<%=request.getContextPath()%>/EchartsClassroomById",update, function(msg){
         		var data = msg.data;
         		var json = JSON.parse(data);
         		option.setOption(json);
