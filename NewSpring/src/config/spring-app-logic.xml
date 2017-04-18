@@ -71,6 +71,9 @@
 	<bean id="echartsLibraryService" class="com.service.impl.EchartsLibraryServiceImpl">
 	</bean>
 	
+	<bean id="echartsClassroomService" class="com.service.impl.EchartsClassroomServiceImpl">
+	</bean>
+	
 	<bean id="theatreService" class="com.service.impl.TheatreServiceImpl">
 	</bean>
 	

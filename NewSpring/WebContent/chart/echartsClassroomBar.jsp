@@ -11,12 +11,16 @@
 <script  Charset="UTF-8" type="text/javascript" src="<%=request.getContextPath()%>/chart/common/js/jquery-1.3.2.min.js"></script>
 </head>
 <body style="background-color: #000000">
-				<div id="chartdiv1" style="height:96%; width:96%; position:absolute; top: 0px;  left:0px;  border:0px solid #FCDD44;">			
- 				</div>
+	<div id="chartdiv1" style="height:96%; width:96%; position:absolute; top: 0px;  left:0px;  border:0px solid #FCDD44;">			
+ 	</div>
+ 	<div id="classroomInput" style="height:96%; width:96%; position:absolute; top: 100%;">
+ 	    <input type="text" name="name" />
+ 	</div>
+ 	
     <script type="text/javascript">
     if(typeof window.addEventListener=="undefined"){
 		 window.attachEvent("resize",function(){
-		    	option.chart.resize();
+		    	option.chart.resize();s
 		    });
 	}
 	else{
