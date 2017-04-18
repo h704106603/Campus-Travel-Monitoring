@@ -12,7 +12,6 @@
 </head>
 <body style="background-color: #000000">
 				<div id="chartdiv1" style="height:96%; width:96%; position:absolute; top: 0px;  left:0px;  border:0px solid #FCDD44;">			
- 					
  				</div>
     <script type="text/javascript">
     if(typeof window.addEventListener=="undefined"){
