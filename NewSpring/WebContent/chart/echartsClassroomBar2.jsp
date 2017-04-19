@@ -16,14 +16,16 @@
 <link href="<%=request.getContextPath()%>/chart/common/css/echartsClassroom.css" rel="stylesheet">
 </head>
 <body style="background-color: #000000">
-	
- 	<select name="classroomId" id="classroomId" style="height:8%; width:10%; position:absolute; top: 0%; left:0px">
+	<div id="chartdiv1" style="height:96%; width:96%; position:absolute; top: 0px;  left:0px;  border:0px solid #FCDD44;">			
+ 	</div>
+ 	<div id="classroomInput" style="height:96%; width:96%; position:absolute; top: 100%;">
+ 	    <input type="text" name="name" />
+ 	</div>
+ 	<select name="classroomId" id="classroomId">
 		<c:forEach items="${ClassroomIdList}" var="ClassroomId">
 			<option value="${ClassroomId}">${ClassroomId}</option>
 		</c:forEach>
 	</select>
-	<div id="chartdiv1" style="height:90%; width:100%; position:absolute; top: 10%;  left:0px;  border:0px solid #FCDD44;">			
- 	</div>
  	
     <script type="text/javascript">
     if(typeof window.addEventListener=="undefined"){
@@ -55,10 +57,7 @@
         function (ec) {
             // --- 地图 ---
         	var option = ec.init(document.getElementById('chartdiv1'));
-        	 
-        	var select = document.getElementById("classroomId");
-    		var index = select.selectedIndex;
-    		var selectedData = select.options[index].value;
+        	      
         	var update = {"classroom":"10"};
         	
         	$.getJSON("<%=request.getContextPath()%>/EchartsClassroomById",update, function(msg){

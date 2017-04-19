@@ -43,6 +43,21 @@ public class EchartsClassroomServiceImpl implements EchartsClassroomService{
          
         
     }
+    
+    public List<String> findClassroomId(){
+        
+        List<String> ClassroomIdlist = new ArrayList<String>();
+        ClassroomIdlist.add("7#410");
+        ClassroomIdlist.add("7#411");
+        ClassroomIdlist.add("7#412");
+        ClassroomIdlist.add("7#413");
+        ClassroomIdlist.add("7#414");
+        ClassroomIdlist.add("7#415");
+        ClassroomIdlist.add("7#416");
+        
+        return ClassroomIdlist;
+        
+    }
 
     public String showBar(String caption,Resource Rsql,String id){
         
