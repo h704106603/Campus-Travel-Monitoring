@@ -173,73 +173,10 @@
 		</div>	
 				
 		</div>
-		
-		
-		<div class="section-margin-top">
-			<div class="row">				
-				<div class="tm-section-header">
-					<div class="col-lg-3 col-md-3 col-sm-3"><hr></div>
-					<div class="col-lg-6 col-md-6 col-sm-6"><h2 class="tm-section-title">近期剧场活动</h2></div>
-					<div class="col-lg-3 col-md-3 col-sm-3"><hr></div>	
-				</div>
-			</div>
-			<div class="row" id="theatreShow">
-				<!-- <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
-					<div class="tm-home-box-2">						
-						<img src="<%=request.getContextPath()%>/chart/common/img/index-03.jpg" alt="image" class="img-responsive">
-						<h3>活动一</h3>
-						<p class="tm-date">时间一</p>
-						<div class="tm-home-box-2-container">
-							<a href="#" class="tm-home-box-2-link"><i class="fa fa-heart tm-home-box-2-icon border-right"></i></a>
-							<a href="#" class="tm-home-box-2-link"><span class="tm-home-box-2-description">点赞/评论</span></a>
-							<a href="#" class="tm-home-box-2-link"><i class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
-					<div class="tm-home-box-2">						
-					    <img src="<%=request.getContextPath()%>/chart/common/img/index-04.jpg" alt="image" class="img-responsive">
-						<h3>活动二</h3>
-						<p class="tm-date">时间二</p>
-						<div class="tm-home-box-2-container">
-							<a href="#" class="tm-home-box-2-link"><i class="fa fa-heart tm-home-box-2-icon border-right"></i></a>
-							<a href="#" class="tm-home-box-2-link"><span class="tm-home-box-2-description">点赞/评论</span></a>
-							<a href="#" class="tm-home-box-2-link"><i class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
-					<div class="tm-home-box-2">						
-					    <img src="<%=request.getContextPath()%>/chart/common/img/index-05.jpg" alt="image" class="img-responsive">
-						<h3>活动三</h3>
-						<p class="tm-date">时间三</p>
-						<div class="tm-home-box-2-container">
-							<a href="#" class="tm-home-box-2-link"><i class="fa fa-heart tm-home-box-2-icon border-right"></i></a>
-							<a href="#" class="tm-home-box-2-link"><span class="tm-home-box-2-description">点赞/评论</span></a>
-							<a href="#" class="tm-home-box-2-link"><i class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
-					<div class="tm-home-box-2 tm-home-box-2-right">						
-					    <img src="<%=request.getContextPath()%>/chart/common/img/index-06.jpg" alt="image" class="img-responsive">
-						<h3>活动四</h3>
-						<p class="tm-date">时间四</p>
-						<div class="tm-home-box-2-container">
-							<a href="#" class="tm-home-box-2-link"><i class="fa fa-heart tm-home-box-2-icon border-right"></i></a>
-							<a href="#" class="tm-home-box-2-link"><span class="tm-home-box-2-description">点赞/评论</span></a>
-							<a href="#" class="tm-home-box-2-link"><i class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
-						</div>
-					</div>
-				</div> -->
-			</div>
-			<div class="row">
-				<div class="col-lg-12">
-					<p class="home-description">每个账号可以通过点赞来支持你所喜欢的活动</p>					
-				</div>
-			</div>			
-		</div>
+		<%-- <%@include file="<%=request.getContextPath()%>/TheatreShowInIndex" %> --%>
+		 <iframe  src="<%=request.getContextPath()%>/TheatreShowInIndex" style="width:100%; height:690px;border-width: 0px;"></iframe>
 	</section>	
+	
 	
 	<!-- white bg -->
 	<section class="tm-white-bg section-padding-bottom">

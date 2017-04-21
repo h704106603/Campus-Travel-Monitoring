@@ -32,3 +32,25 @@ select:hover
     border                  : 1px solid #cdcdcd;
 }    
 select:focus {box-shadow: 0 0 2px 1px #404040;}
+
+button
+{
+   width                    : 14em;
+   height                   : 2.5em;
+   padding                  : 0.2em 0.4em 0.2em 0.4em;
+   vertical-align           : middle;
+   border                   : 1px solid #e9e9e9;
+   -moz-border-radius       : 0.2em;
+   -webkit-border-radius    : 0.2em;
+   border-radius            : 0.2em;
+   box-shadow               : inset 0 0 3px #a0a0a0;
+   -webkit-appearance       : none;
+   -moz-appearance          : none;
+   appearance               : none;
+   /* sample image from the webinfocentral.com */
+   background               : url("http://ourjs.github.io/static/2015/arrow.png") 95% / 10% no-repeat #fdfdfd;
+   font-family              : Arial,  Calibri, Tahoma, Verdana;
+   font-size                : 1.1em;
+   color                    : #000099;
+   cursor                   : pointer;
+}

@@ -22,6 +22,8 @@
 			<option value="${ClassroomId}">${ClassroomId}</option>
 		</c:forEach>
 	</select>
+	<button name="classroomIdSubmit" id="classroomIdSubmit" value="刷新"  style="height:8%; position:absolute; width:10%;top: 0%; left:11%">
+	</button>
 	<div id="chartdiv1" style="height:90%; width:100%; position:absolute; top: 10%;  left:0px;  border:0px solid #FCDD44;">			
  	</div>
  	

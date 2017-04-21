@@ -59,6 +59,14 @@ public class IndexController {
 	}
 	
 	
+	/**
+     * 转到首页中的剧场活动展示模块
+     * @return
+     */
+    @RequestMapping("/TheatreShowInIndex")
+    public ModelAndView TheatreShowInIndex(){
+        return new ModelAndView("theatreShowInIndex");
+    }
   	
 	
   	
